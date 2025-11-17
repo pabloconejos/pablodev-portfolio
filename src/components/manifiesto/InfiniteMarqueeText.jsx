@@ -2,7 +2,6 @@
 import { Text } from "@react-three/drei";
 import { useThree, useFrame } from "@react-three/fiber";
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
-import * as THREE from "three";
 
 export default function InfiniteMarqueeText({
   text,
