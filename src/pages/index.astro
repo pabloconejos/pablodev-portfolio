@@ -1,5 +1,6 @@
 ---
-import Scene from '../components/Scene.jsx';
+import PruebaLocaEscena from '../components/manifiesto/pruebaLocaEscena';
+import Scene from '../components/portada/Scene.jsx';
 import Layout from '../layouts/Layout.astro';
 
 // Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
@@ -9,5 +10,6 @@ import Layout from '../layouts/Layout.astro';
 <Layout>
 	<div class="relative h-screen">
 		<Scene client:only="react" />
+		<PruebaLocaEscena client:only="react" />
 	</div>
 </Layout>
