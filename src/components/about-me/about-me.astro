@@ -1,0 +1,55 @@
+<style>
+
+
+.about-me {
+    display: flex;
+    justify-content: center;
+    align-items: start;
+    height: 100vh;
+    margin-bottom: 10rem;
+}
+
+@keyframes reveal {
+    0% {
+        transform: translateY(3000px);
+        opacity: 0;
+    }
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+.about-me-content {
+    margin-top: 6rem;
+}
+
+p {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 8rem;
+    animation: reveal linear both;
+    animation-timeline: view();
+    animation-range: entry 20% cover 50%;
+    font-weight: bold;
+    animation-delay: calc(sibling-index() * 1s);
+    line-height: 0.9;
+    text-align: center;
+    letter-spacing: -6px;
+}
+
+</style>
+
+
+
+
+<section>
+    <div class="about-me">
+        <div class="about-me-content">
+            <p>Web Developer</p>
+            <p>Full Stack</p>
+            <p>UX/UI Designer</p>
+            <p>Data Base Engineer</p>
+            <p>Based in VLC</p>
+        </div>
+    </div>
+</section>
