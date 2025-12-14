@@ -6,7 +6,7 @@
     .wrapper {
         height: 150vh;
         position: relative;
-        top: -100px;
+        top: -200px;
     }
     .panel {
         position: sticky;
@@ -56,6 +56,28 @@
         100% {
             transform: translateY(0);
             opacity: 1;
+        }
+    }
+
+    /* 📱 MEDIA QUERY para pantallas más pequeñas (Móviles y Tablets) */
+    @media (max-width: 768px) {
+        p {
+            font-size: 3rem; /* Tamaño reducido para móviles */
+            line-height: 1.2; /* Aumentar la altura de línea para mejor legibilidad */
+            letter-spacing: -2px; /* Reducir el espaciado entre letras */
+            padding: 0 10px; /* Añadir un poco de padding horizontal */
+        }
+
+        .wrapper {
+            /* Ajustar si es necesario, puede que en móviles necesites menos altura */
+            height: 100vh;
+            top: 0;
+        }
+
+        .panel {
+            /* Asegurar que el contenido se centre y tenga margen */
+            top: 20px;
+            padding: 0 5px;
         }
     }
 </style>
