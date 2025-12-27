@@ -2,242 +2,149 @@
 // HorizontalScroll.astro
 ---
 
-<!-- <section class="section one">
+<!-- 
+<section class="vertical-section">
     <div class="container">
-        <h1>Lorem Ipsum.</h1>
-    </div>
-</section>
-
-<section class="section two">
-    <div class="container">
-        <h1>Lorem Ipsum.</h1>
-    </div>
-</section>
-
-<section class="section three">
-    <div class="container">
-        <h1>Lorem Ipsum.</h1>
+        <h1>Desliza para ver el portfolio</h1>
     </div>
 </section> -->
-<section id="section_to-pin" class="section section_to-pin four">
-    <div id="section_pin" class="section_pin">
-        <div class="content_wrapper">
-            <h1>Lorem Horizontal.</h1>
-        </div>
-        <div id="image_wrapper_1" class="image_wrapper image_wrapper_1">
-            <img
-                class="image"
-                src="https://scontent-mad2-1.cdninstagram.com/v/t51.82787-15/574205938_18079031393161925_3032793368057791432_n.jpg?stp=dst-jpegr_e35_s1080x1080_tt6&_nc_cat=108&ig_cache_key=Mzc1NjQ0NDA0MTUzODcwNTI5NQ%3D%3D.3-ccb7-5&ccb=7-5&_nc_sid=58cdad&efg=eyJ2ZW5jb2RlX3RhZyI6InhwaWRzLjE0NDB4MTA4MC5oZHIuQzMifQ%3D%3D&_nc_ohc=o7AwOfRFFAEQ7kNvwGQHPCT&_nc_oc=Adn5FGwqQgWLQHpfoWsJxf8hPbJN9ufqpV1sz8jthFgDFNekzgbhmeQDxNJXTeAx2WW7FbF8Fo-M270TOL0unOJO&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=scontent-mad2-1.cdninstagram.com&_nc_gid=IWwWXxUDZoOTGo5lcJkJlg&oh=00_Afn6GKCcYMZ9ixrjPg7mW18ibnaiwTo2g02C99wltAao8Q&oe=6955F1CC"
-                alt="Lil' Image"
-            />
-        </div>
-        <div id="image_wrapper_2" class="image_wrapper image_wrapper_2">
-            <img
-                class="image"
-                src="https://i.pinimg.com/736x/09/2d/0e/092d0e6113e51a9b000eba09a158ded8.jpg"
-                alt="Lil' Image"
-            />
-        </div>
-        <div id="image_wrapper_3" class="image_wrapper image_wrapper_3">
-            <img
-                class="image"
-                src="https://scontent-mad1-1.cdninstagram.com/v/t51.75761-15/491460186_18059158235161925_1246776399880620513_n.jpg?stp=dst-jpg_e35_tt6&_nc_cat=106&ig_cache_key=MzYxNjUyMjIxNzE0NDIzOTQ2MQ%3D%3D.3-ccb7-5&ccb=7-5&_nc_sid=58cdad&efg=eyJ2ZW5jb2RlX3RhZyI6InhwaWRzLjE0NDB4MTgwMC5zZHIuQzMifQ%3D%3D&_nc_ohc=Lu3QDpo7pIoQ7kNvwHoddC2&_nc_oc=Adl7s9WdHEt0avdkQzsefMy7IIZms5MxNRxsBrrUzruAspMdX_jGf-dMv3bzT3M7bYnzLKarJQthAPEcFnFrKjao&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=scontent-mad1-1.cdninstagram.com&_nc_gid=QOB5TlpWHxHfD9IBUVzaHw&oh=00_AfmWH13BltfGhkZYgu8CEEpeo82sh_2K-oaf8LQDEbCI6Q&oe=6955F783"
-                alt="Lil' Image"
-            />
-        </div>
-    </div>
-</section>
+<div id="scroll-wrapper">
+    <section id="section_to-pin" class="section_to-pin">
+        <div id="section_pin" class="section_pin">
+            <div class="content_wrapper collage-intro">
+                <div class="quote-card">
+                    <p>"El progreso es el resultado de la constancia."</p>
+                </div>
+                <h2>Mi Historia</h2>
+            </div>
 
-<section class="section five">
-    <div class="container">
-        <h1>Lorem Ipsum.</h1>
-    </div>
-</section>
+            <div class="dense-mosaic">
+                <div class="mosaic-item item-1">
+                    <span class="label">Barcelona, 2024</span>
+                    <div class="img-container">
+                        <img
+                            src="https://images.unsplash.com/photo-1533130061792-64b345e4a833?q=80&w=1000&auto=format&fit=crop"
+                            alt="Work"
+                        />
+                    </div>
+                </div>
 
-<section class="section six">
-    <div class="container">
-        <h1>Lorem Ipsum.</h1>
-    </div>
-</section>
+                <div class="mosaic-item item-2 grayscale">
+                    <div class="img-container portrait">
+                        <img
+                            src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&w=800&auto=format&fit=crop"
+                            alt="Portrait"
+                        />
+                    </div>
+                    <span class="label-bottom">Gala, 2024</span>
+                </div>
 
-<section class="section seven">
+                <div class="mosaic-item item-text">
+                    <p>
+                        He trabajado incansablemente para que este sueño se haga
+                        realidad.
+                    </p>
+                </div>
+
+                <div class="mosaic-item item-3">
+                    <div class="img-container wide">
+                        <img
+                            src="https://images.unsplash.com/photo-1568605117036-5fe5e7bab0b7?q=80&w=1000&auto=format&fit=crop"
+                            alt="Car"
+                        />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+
+<section class="vertical-section footer-area">
     <div class="container">
-        <h1>Lorem Ipsum.</h1>
+        <h2>Contacto</h2>
+        <p>¿Tienes algún proyecto en mente?</p>
     </div>
 </section>
 
 <style>
-    @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&family=Manrope:wght@400;600&display=swap");
-
-    :global(html.lenis) {
-        height: auto;
-    }
-
-    :global(.lenis.lenis-smooth) {
-        scroll-behavior: auto;
-    }
-
-    :global(.lenis.lenis-smooth [data-lenis-prevent]) {
-        overscroll-behavior: contain;
-    }
-
-    :global(.lenis.lenis-scrolling iframe) {
-        pointer-events: none;
-    }
-
-    :global(.lenis.lenis-stopped) {
-        overflow: hidden;
-    }
-
-    h1 {
+    :global(body) {
         margin: 0;
-        font-family: "Montserrat", sans-serif;
-        font-size: 32px;
-        font-weight: 600;
-        font-style: normal;
-        line-height: 42px;
+        background-color: #f8f7f2; /* Color crema de la referencia */
+        overflow-x: hidden;
     }
 
-    .container {
-        width: 100%;
-        max-width: 1200px;
-        margin: 0 auto;
-        padding: 0 1rem;
-    }
-
-    .section {
-        min-height: 100vh;
-        padding-top: 120px;
-        padding-bottom: 120px;
+    /* Secciones verticales estándar */
+    .vertical-section {
+        height: 100vh;
         display: flex;
-        justify-content: flex-start;
         align-items: center;
+        justify-content: center;
+        background: #ffffff;
+        z-index: 10;
+        position: relative;
+    }
+
+    /* Configuración del Pinning */
+    .section_to-pin {
+        height: 100vh;
         overflow: hidden;
-
-        &.one {
-            background-color: #fefefe;
-            z-index: 1;
-            * {
-                color: #0a0a0a;
-            }
-        }
-
-        &.two {
-            background-color: #e8eddf;
-            z-index: 2;
-            * {
-                color: #0a0a0a;
-            }
-        }
-
-        &.three {
-            background-color: #cfdbd5;
-            z-index: 3;
-            * {
-                color: #0a0a0a;
-            }
-        }
-
-        &.four {
-            z-index: 4;
-            * {
-                color: #0a0a0a;
-            }
-
-            &.section_to-pin {
-                height: 100vh;
-                left: 0;
-                display: flex;
-                justify-content: flex-start;
-                align-items: center;
-                overflow: hidden;
-
-                .section_pin {
-                    height: 100vh;
-                    padding: 120px 12vw;
-                    display: flex;
-                    justify-content: flex-start;
-                    align-items: center;
-
-                    .content_wrapper {
-                        min-width: 777px;
-                        padding: 0 6vw;
-                    }
-
-                    .image_wrapper {
-                        min-width: 60vw;
-                        padding: 0 6vw;
-                        position: relative;
-                        /* opacity: 0.7; */
-                        /* transition: opacity 0.3s
-                            cubic-bezier(0.51, 0.18, 0, 0.88); */
-
-                        .image {
-                            width: 100%;
-                            height: auto;
-                            object-fit: cover;
-                            object-position: center;
-                        }
-
-                        &.active {
-                            opacity: 1;
-                        }
-                    }
-                }
-            }
-        }
-
-        &.five {
-            background-color: #4b4e4b;
-            z-index: 5;
-            * {
-                color: #fefefe;
-            }
-        }
-
-        &.six {
-            background-color: #242423;
-            z-index: 6;
-            * {
-                color: #fefefe;
-            }
-        }
-
-        &.seven {
-            background-color: #0a0a0a;
-            z-index: 7;
-            * {
-                color: #fefefe;
-            }
-        }
     }
 
-    @media screen and (min-width: 640px) {
-        h1 {
-            font-size: 40px;
-            line-height: 50px;
-        }
+    .section_pin {
+        height: 100vh;
+        display: flex;
+        align-items: center;
+        width: fit-content;
+        padding: 0 5vw;
+        will-change: transform;
     }
 
-    @media screen and (min-width: 1024px) {
-        h1 {
-            font-size: 48px;
-            line-height: 58px;
-        }
+    /* Estilos del Mosaico */
+    .dense-mosaic {
+        position: relative;
+        width: 150vw; /* Ancho del recorrido horizontal */
+        height: 80vh;
     }
 
-    @media screen and (min-width: 1200px) {
-        h1 {
-            font-size: 56px;
-            line-height: 66px;
-        }
+    .mosaic-item {
+        position: absolute;
     }
 
-    @media screen and (min-width: 1440px) {
-        h1 {
-            font-size: 64px;
-            line-height: 74px;
-        }
+    .item-1 {
+        top: 10%;
+        left: 5%;
+        width: 450px;
+    }
+    .item-2 {
+        top: 5%;
+        left: 40%;
+        width: 300px;
+    }
+    .item-text {
+        top: 60%;
+        left: 15%;
+        width: 300px;
+        font-style: italic;
+    }
+    .item-3 {
+        top: 20%;
+        left: 70%;
+        width: 550px;
+    }
+
+    .img-container img {
+        width: 100%;
+        height: auto;
+        display: block;
+    }
+
+    .grayscale {
+        filter: grayscale(100%);
+    }
+    .label {
+        font-size: 0.7rem;
+        text-transform: uppercase;
+        color: #888;
     }
 </style>
 
@@ -248,73 +155,39 @@
 
     gsap.registerPlugin(ScrollTrigger);
 
-    function initializeApp() {
-        initializeGSAPScrollTriggerPinningHorizontal();
-        initializeLenisScroll();
-    }
+    function init() {
+        // 1. Scroll suave con Lenis
+        const lenis = new Lenis();
+        lenis.on("scroll", ScrollTrigger.update);
+        gsap.ticker.add((time) => lenis.raf(time * 1000));
 
-    function initializeGSAPScrollTriggerPinningHorizontal() {
         const sectionPin = document.querySelector(
             "#section_pin",
         ) as HTMLElement;
+        const sectionToPin = document.querySelector(
+            "#section_to-pin",
+        ) as HTMLElement;
 
-        if (!sectionPin) return;
-
-        const containerAnimation = gsap.to(sectionPin, {
-            scrollTrigger: {
-                trigger: "#section_to-pin",
-                start: "top top",
-                end: () => "+=" + sectionPin.offsetWidth,
-                pin: true,
-                scrub: true,
-            },
-            x: () =>
-                -(
-                    sectionPin.scrollWidth -
-                    document.documentElement.clientWidth
-                ) + "px",
-            ease: "none",
-        });
-
-        const imageWrappers = sectionPin.querySelectorAll(".image_wrapper");
-
-        imageWrappers.forEach((imageWrapper) => {
-            const imageWrapperID = imageWrapper.id;
-
-            gsap.to(imageWrapper, {
+        if (sectionPin && sectionToPin) {
+            // 2. Animación Horizontal con Pinning
+            gsap.to(sectionPin, {
+                x: () =>
+                    -(
+                        sectionPin.scrollWidth -
+                        document.documentElement.clientWidth
+                    ),
+                ease: "none",
                 scrollTrigger: {
-                    trigger: imageWrapper,
-                    start: "left center",
-                    end: "right center",
-                    containerAnimation: containerAnimation,
-                    toggleClass: {
-                        targets: "." + imageWrapperID,
-                        className: "active",
-                    },
+                    trigger: sectionToPin,
+                    pin: true, // Bloquea el scroll vertical
+                    scrub: 1, // Sincroniza con el movimiento del mouse
+                    start: "top top", // Empieza cuando el div llega arriba
+                    end: () => "+=" + sectionPin.scrollWidth, // Dura lo que mide el contenido
+                    invalidateOnRefresh: true,
                 },
             });
-        });
+        }
     }
 
-    function initializeLenisScroll() {
-        const lenis = new Lenis({
-            smoothWheel: true,
-            duration: 1.2,
-        });
-
-        lenis.on("scroll", ScrollTrigger.update);
-
-        gsap.ticker.add((time) => {
-            lenis.raf(time * 1000);
-        });
-
-        gsap.ticker.lagSmoothing(0);
-    }
-
-    // Inicializar cuando el DOM esté listo
-    if (document.readyState === "loading") {
-        document.addEventListener("DOMContentLoaded", initializeApp);
-    } else {
-        initializeApp();
-    }
+    document.addEventListener("DOMContentLoaded", init);
 </script>
