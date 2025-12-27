@@ -2,149 +2,251 @@
 // HorizontalScroll.astro
 ---
 
-<!-- 
-<section class="vertical-section">
-    <div class="container">
-        <h1>Desliza para ver el portfolio</h1>
-    </div>
-</section> -->
 <div id="scroll-wrapper">
     <section id="section_to-pin" class="section_to-pin">
         <div id="section_pin" class="section_pin">
-            <div class="content_wrapper collage-intro">
-                <div class="quote-card">
-                    <p>"El progreso es el resultado de la constancia."</p>
+            <div class="topo-overlay"></div>
+
+            <div class="horizontal-block">
+                <div class="mosaic-item">
+                    <span class="label">High Performance Gala, 2024</span>
+                    <div class="img-frame small">
+                        <img
+                            src="https://scontent-mad1-1.cdninstagram.com/v/t51.82787-15/544131499_18072444920161925_6234876228240357160_n.jpg?stp=dst-jpg_e35_tt6&_nc_cat=107&ig_cache_key=MzcxODAxNDU3NDIxODk4NjY4Ng%3D%3D.3-ccb7-5&ccb=7-5&_nc_sid=58cdad&efg=eyJ2ZW5jb2RlX3RhZyI6InhwaWRzLjE0NDB4MTQ0MC5zZHIuQzMifQ%3D%3D&_nc_ohc=r0059HUcRHcQ7kNvwEu9Nwi&_nc_oc=AdlCudhgx3bpZ-0Oj_jClISiLdzEJLMZq2e6APKGVUXOArKW4X76ek1a-suGDGZv50JOdQhNn72UnJ3--EMAl51Y&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=scontent-mad1-1.cdninstagram.com&_nc_gid=hWi_DmtkMq4pPAdG6vDriw&oh=00_Afmu867cUYBNFhWDqy07Ftji0OjzKBmbKTGrnJ_f6CWOQg&oe=695607CA"
+                        />
+                    </div>
                 </div>
-                <h2>Mi Historia</h2>
+
+                <div class="mosaic-item">
+                    <span class="label">Barcelona, 2024</span>
+                    <div class="img-frame large">
+                        <img
+                            src="https://scontent-mad2-1.cdninstagram.com/v/t51.82787-15/574205938_18079031393161925_3032793368057791432_n.jpg?stp=dst-jpegr_e35_s1080x1080_tt6&_nc_cat=108&ig_cache_key=Mzc1NjQ0NDA0MTUzODcwNTI5NQ%3D%3D.3-ccb7-5&ccb=7-5&_nc_sid=58cdad&efg=eyJ2ZW5jb2RlX3RhZyI6InhwaWRzLjE0NDB4MTA4MC5oZHIuQzMifQ%3D%3D&_nc_ohc=o7AwOfRFFAEQ7kNvwGQHPCT&_nc_oc=Adn5FGwqQgWLQHpfoWsJxf8hPbJN9ufqpV1sz8jthFgDFNekzgbhmeQDxNJXTeAx2WW7FbF8Fo-M270TOL0unOJO&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=scontent-mad2-1.cdninstagram.com&_nc_gid=IWwWXxUDZoOTGo5lcJkJlg&oh=00_Afn6GKCcYMZ9ixrjPg7mW18ibnaiwTo2g02C99wltAao8Q&oe=6955F1CC"
+                        />
+                    </div>
+                </div>
             </div>
 
-            <div class="dense-mosaic">
-                <div class="mosaic-item item-1">
-                    <span class="label">Barcelona, 2024</span>
-                    <div class="img-container">
+            <div class="horizontal-block">
+                <div class="mosaic-item">
+                    <span class="label">Testing Days, 2023</span>
+                    <div class="img-frame wide">
                         <img
-                            src="https://images.unsplash.com/photo-1533130061792-64b345e4a833?q=80&w=1000&auto=format&fit=crop"
-                            alt="Work"
+                            src="https://scontent-mad2-1.cdninstagram.com/v/t51.75761-15/483460480_18055202687161925_1754695644122750245_n.jpg?stp=dst-jpg_e35_tt6&_nc_cat=110&ig_cache_key=MzU4NDc3ODczMjgyOTg2NDc1Nw%3D%3D.3-ccb7-5&ccb=7-5&_nc_sid=58cdad&efg=eyJ2ZW5jb2RlX3RhZyI6InhwaWRzLjExNzB4MTE3MC5zZHIuQzMifQ%3D%3D&_nc_ohc=r06G6OsWq0AQ7kNvwGIM8P4&_nc_oc=AdmbnkHZzWy85bCOWUaKehvd9XHcnbzE8subJJIfraS4TGOOgaMCCCKulryJCNT_4MVuOLGJm669VJ-7_6KKb97F&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=scontent-mad2-1.cdninstagram.com&_nc_gid=wPo8geArZRAj06tM5PRBQQ&oh=00_Afn7vBcEzju8jhs4Z_pl50WH1-6a_q8g1zs--zpuJeyqfA&oe=6955FE26"
                         />
                     </div>
                 </div>
 
-                <div class="mosaic-item item-2 grayscale">
-                    <div class="img-container portrait">
+                <div class="mosaic-item">
+                    <span class="label">Austria, 2020</span>
+                    <div class="img-frame medium">
                         <img
-                            src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&w=800&auto=format&fit=crop"
-                            alt="Portrait"
+                            src="https://i.pinimg.com/736x/62/f6/97/62f6976d82746ec0f6beb1a7f21fa936.jpg"
                         />
                     </div>
-                    <span class="label-bottom">Gala, 2024</span>
                 </div>
+            </div>
 
-                <div class="mosaic-item item-text">
-                    <p>
-                        He trabajado incansablemente para que este sueño se haga
-                        realidad.
-                    </p>
-                </div>
-
-                <div class="mosaic-item item-3">
-                    <div class="img-container wide">
+            <div class="horizontal-block">
+                <div class="mosaic-item">
+                    <span class="label">Focus, 2024</span>
+                    <div class="img-frame tall">
                         <img
-                            src="https://images.unsplash.com/photo-1568605117036-5fe5e7bab0b7?q=80&w=1000&auto=format&fit=crop"
-                            alt="Car"
+                            src="https://scontent-mad1-1.cdninstagram.com/v/t51.75761-15/491460186_18059158235161925_1246776399880620513_n.jpg?stp=dst-jpg_e35_tt6&_nc_cat=106&ig_cache_key=MzYxNjUyMjIxNzE0NDIzOTQ2MQ%3D%3D.3-ccb7-5&ccb=7-5&_nc_sid=58cdad&efg=eyJ2ZW5jb2RlX3RhZyI6InhwaWRzLjE0NDB4MTgwMC5zZHIuQzMifQ%3D%3D&_nc_ohc=Lu3QDpo7pIoQ7kNvwHoddC2&_nc_oc=Adl7s9WdHEt0avdkQzsefMy7IIZms5MxNRxsBrrUzruAspMdX_jGf-dMv3bzT3M7bYnzLKarJQthAPEcFnFrKjao&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=scontent-mad1-1.cdninstagram.com&_nc_gid=QOB5TlpWHxHfD9IBUVzaHw&oh=00_AfmWH13BltfGhkZYgu8CEEpeo82sh_2K-oaf8LQDEbCI6Q&oe=6955F783"
+                        />
+                    </div>
+                </div>
+
+                <div class="mosaic-item">
+                    <span class="label">US GP, 2024</span>
+                    <div class="img-frame medium">
+                        <img
+                            src="https://scontent-mad2-1.cdninstagram.com/v/t51.82787-15/606970377_18083815715161925_4576422814333212215_n.jpg?stp=dst-jpg_e35_tt6&_nc_cat=104&ig_cache_key=Mzc5NTM4MzAyNzM2MzQ5MDU4Ng%3D%3D.3-ccb7-5&ccb=7-5&_nc_sid=58cdad&efg=eyJ2ZW5jb2RlX3RhZyI6InhwaWRzLjkwMHg5MDAuc2RyLkMzIn0%3D&_nc_ohc=3j6deyt7G0wQ7kNvwH15Uav&_nc_oc=Adn8W1iD8jKlk71LmB3BFS4mcSgdSlerh-nVfKQWYivOaaQk8SjHOzInc2L_svWKNAKQzRO_I5RaedxTBgifTXDC&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=scontent-mad2-1.cdninstagram.com&_nc_gid=qILyb2mEx1IkawUxt7RRuA&oh=00_AfnCqcukBXD6gk41SjZeBCSW9sbwd6SRFvlK_RCcL6CuaA&oe=6955E208"
                         />
                     </div>
                 </div>
             </div>
         </div>
     </section>
+
+    <section class="vertical-footer">
+        <div class="footer-content">
+            <h2>Siguiente Capítulo</h2>
+            <p>
+                Desliza hacia abajo para continuar con el portfolio tradicional.
+            </p>
+        </div>
+    </section>
 </div>
 
-<section class="vertical-section footer-area">
-    <div class="container">
-        <h2>Contacto</h2>
-        <p>¿Tienes algún proyecto en mente?</p>
-    </div>
-</section>
-
 <style>
-    :global(body) {
-        margin: 0;
-        background-color: #f8f7f2; /* Color crema de la referencia */
-        overflow-x: hidden;
-    }
-
-    /* Secciones verticales estándar */
-    .vertical-section {
-        height: 100vh;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        background: #ffffff;
-        z-index: 10;
-        position: relative;
-    }
-
     /* Configuración del Pinning */
     .section_to-pin {
         height: 100vh;
+        width: 100%;
         overflow: hidden;
     }
 
     .section_pin {
         height: 100vh;
         display: flex;
-        align-items: center;
-        width: fit-content;
-        padding: 0 5vw;
-        will-change: transform;
+        flex-wrap: nowrap;
+        width: auto; /* Cambia de 300vw a auto */
+        position: relative;
+        padding-left: 5vw;
+        gap: 0; /* Asegúrate de que no haya espacio entre bloques */
     }
 
-    /* Estilos del Mosaico */
-    .dense-mosaic {
+    /* Capa de fondo con líneas (puedes usar un SVG topográfico real aquí) */
+    .topo-overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-image: url("data:image/svg+xml;base64,..."); /* Insertar SVG aquí */
+        opacity: 0.1;
+        z-index: 0;
+        pointer-events: none;
+    }
+
+    /* Bloques de contenido */
+    .horizontal-block {
         position: relative;
-        width: 150vw; /* Ancho del recorrido horizontal */
-        height: 80vh;
+        width: 80vw; /* Cambia de 100vw a 80vw para que la siguiente sección asome antes */
+        height: 100%;
+        flex-shrink: 0;
+        /* border: 1px solid red; */
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        gap: 15px;
     }
 
     .mosaic-item {
-        position: absolute;
+        /* position: absolute; */
+        z-index: 2;
     }
 
-    .item-1 {
-        top: 10%;
-        left: 5%;
-        width: 450px;
+    /* Marcos de Imagen */
+    .img-frame {
+        overflow: hidden;
+        transition: transform 0.3s ease;
     }
-    .item-2 {
-        top: 5%;
-        left: 40%;
-        width: 300px;
-    }
-    .item-text {
-        top: 60%;
-        left: 15%;
-        width: 300px;
-        font-style: italic;
-    }
-    .item-3 {
-        top: 20%;
-        left: 70%;
-        width: 550px;
-    }
-
-    .img-container img {
+    .img-frame img {
         width: 100%;
-        height: auto;
-        display: block;
+        height: 100%;
+        object-fit: cover;
     }
-
     .grayscale {
         filter: grayscale(100%);
     }
+
+    /* Tamaños */
+    .small {
+        width: 18vw;
+        height: 30vh;
+    }
+    .medium {
+        width: 25vw;
+        height: 45vh;
+    }
+    .large {
+        width: 35vw;
+        height: 60vh;
+    }
+    .wide {
+        width: 45vw;
+        height: 35vh;
+    }
+    .tall {
+        width: 22vw;
+        height: 55vh;
+    }
+
+    /* Posiciones manuales para el look "collage" */
+    .item-1 {
+        top: 15%;
+        left: 0;
+    }
+    .item-main {
+        top: 10%;
+        left: 20vw; /* Antes 25vw */
+    }
+    .item-quote-1 {
+        top: 72%;
+        left: 25vw;
+        width: 30vw;
+    }
+
+    .item-top-wide {
+        top: 5%;
+        left: 5vw;
+    }
+    .item-mid-text {
+        top: 45%;
+        left: 15vw;
+        width: 25vw;
+    }
+    .item-2 {
+        top: 35%;
+        left: 50vw;
+    }
+
+    .item-last-hero {
+        top: 10%;
+        left: 10vw;
+    }
+    .item-final-text {
+        top: 40%;
+        left: 30vw;
+    }
+    .item-3 {
+        top: 55%;
+        left: 60vw;
+    }
+
+    /* Tipografía */
     .label {
-        font-size: 0.7rem;
+        font-size: 10px;
         text-transform: uppercase;
-        color: #888;
+        letter-spacing: 2px;
+        display: block;
+        margin-bottom: 8px;
+    }
+    .serif-text {
+        font-family: "Playfair Display", serif;
+        font-size: 2rem;
+        line-height: 1.2;
+        color: #222;
+    }
+    .body-text {
+        font-size: 0.95rem;
+        line-height: 1.6;
+        color: #555;
+        margin-top: 15px;
+    }
+    .signature {
+        font-family: "Dancing Script", cursive;
+        font-size: 2rem;
+        margin-top: 20px;
+    }
+    .block-title {
+        font-size: 3rem;
+        margin: 0;
+        font-weight: 800;
+        color: #111;
+    }
+
+    /* Footer vertical */
+    .vertical-footer {
+        height: 100vh;
+        background: #fff;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+        z-index: 10;
     }
 </style>
 
@@ -156,38 +258,34 @@
     gsap.registerPlugin(ScrollTrigger);
 
     function init() {
-        // 1. Scroll suave con Lenis
-        const lenis = new Lenis();
+        const lenis = new Lenis({
+            lerp: 0.1, // Suavidad del scroll
+            smoothWheel: true,
+        });
+
         lenis.on("scroll", ScrollTrigger.update);
         gsap.ticker.add((time) => lenis.raf(time * 1000));
 
-        const sectionPin = document.querySelector(
-            "#section_pin",
-        ) as HTMLElement;
-        const sectionToPin = document.querySelector(
-            "#section_to-pin",
-        ) as HTMLElement;
+        const sectionPin = document.querySelector("#section_pin");
+        const sectionToPin = document.querySelector("#section_to-pin");
 
         if (sectionPin && sectionToPin) {
-            // 2. Animación Horizontal con Pinning
             gsap.to(sectionPin, {
-                x: () =>
-                    -(
-                        sectionPin.scrollWidth -
-                        document.documentElement.clientWidth
-                    ),
+                x: () => -(sectionPin.scrollWidth - window.innerWidth),
                 ease: "none",
                 scrollTrigger: {
                     trigger: sectionToPin,
-                    pin: true, // Bloquea el scroll vertical
-                    scrub: 1, // Sincroniza con el movimiento del mouse
-                    start: "top top", // Empieza cuando el div llega arriba
-                    end: () => "+=" + sectionPin.scrollWidth, // Dura lo que mide el contenido
+                    pin: true,
+                    scrub: 1,
+                    start: "top top",
+                    // Multiplica por 0.6 o 0.8 para "acortar" la duración del scroll
+                    end: () => `+=${sectionPin.scrollWidth * 0.7}`,
                     invalidateOnRefresh: true,
                 },
             });
         }
     }
 
+    // Reiniciar ScrollTrigger al navegar en Astro
     document.addEventListener("DOMContentLoaded", init);
 </script>
