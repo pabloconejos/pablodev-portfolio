@@ -1,5 +1,7 @@
-import React, { useEffect } from "react";
-import "./portada-name.css"; // <- aquí se cargan realmente los estilos
+import React, { useEffect, useLayoutEffect } from "react";
+import { gsap } from "gsap";
+import "./portada-name.css";
+import { SplitText } from "gsap/SplitText";
 
 export default function PortadaName() {
   useEffect(() => {
@@ -207,12 +209,40 @@ export default function PortadaName() {
   }, []);
 
 
+  useLayoutEffect(() => {
+    const ctx = gsap.context(() => {
+      gsap.registerPlugin(SplitText)
+      let split = SplitText.create(".split", { type: "words" });
+
+      gsap.from(".cards .card", {
+        y: 20,
+        opacity: 0,
+        duration: 0.6,
+        stagger: 0.08,
+        ease: "power2.out",
+      });
+
+      gsap.from(split.words, {
+        y: 20,
+        opacity: 0,
+        duration: 0.6,
+        stagger: 0.08,
+        ease: "power2.out",
+      });
+
+
+    });
+
+    return () => ctx.revert(); // limpia animaciones y restores
+  }, []);
+
+
   return (
     <>
       <style className="hover" />
       <main>
         <div className="portada">
-          
+
           <section className="cards">
             <div className="card p-logo animated"></div>
             <div className="card a-logo animated"></div>
@@ -221,8 +251,8 @@ export default function PortadaName() {
             <div className="card o-logo animated"></div>
           </section>
           <div className="sub-titulo">
-            <p>Pablo Conejos</p>
-            <p>Developer</p>
+            <p className="split">Pablo Conejos</p>
+            <p className="split">Developer</p>
           </div>
         </div>
       </main>

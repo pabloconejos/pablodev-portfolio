@@ -1,6 +1,6 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import Portada from "../components/portada/portada-name.jsx";
+import PortadaName from "../components/portada/portada-name.jsx";
 import SideWorksPage from "../components/side-works/side-works-page.astro";
 import AboutMe from "../components/about-me/about-me.astro";
 import HorizontalSection from "../components/about-me/horizontal-section.astro";
@@ -9,8 +9,20 @@ import HorizontalSection from "../components/about-me/horizontal-section.astro";
 ---
 
 <Layout>
-	<Portada client:only="react" />
+	<div class="portada">
+		<PortadaName client:only="react" />
+	</div>
 	<AboutMe />
-	<!-- <SideWorksPage/> -->
+	<!--  -->
 	<HorizontalSection client:load />
+	<!-- <SideWorksPage /> -->
 </Layout>
+
+<style>
+	.portada {
+		min-height: 90%;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+	}
+</style>
