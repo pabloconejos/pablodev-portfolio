@@ -1,0 +1,245 @@
+<section class="hero-container">
+    <article class="title-section">
+        <h1>Pablo Conejos</h1>
+        <p>Developer</p>
+
+        <div class="sub-title-mobile">
+            <p>APIs, SQL & Performance</p>
+            <p>UX & Business Focused</p>
+            <p>Software Developer</p>
+            <p>End-to-End Apps</p>
+            <p>Based in Spain</p>
+        </div>
+    </article>
+
+    <div class="img-section">
+        <img
+            src="/fotos/portada/folder_1_no_bg.png"
+            class="img-folder"
+            alt="Carpeta"
+        />
+        <img
+            src="/fotos/portada/mac_1_no_bg.png"
+            class="img-mac"
+            alt="Laptop"
+        />
+        <img
+            src="/fotos/portada/raton_1_no_bg.png"
+            class="img-raton"
+            alt="Ratón"
+        />
+        <img
+            src="/fotos/portada/teclado_1_no_bg.png"
+            class="img-teclado"
+            alt="Teclado"
+        />
+        <img
+            src="/fotos/portada/terminal_2_no_bg.png"
+            class="img-terminal"
+            alt="Terminal"
+        />
+    </div>
+</section>
+<!--  -->
+
+<style>
+    .hero-container {
+        padding: 2rem;
+        position: relative;
+        width: 100%;
+        height: 100%;
+        overflow-x: clip;
+    }
+
+    .title-section {
+        display: flex;
+        flex-direction: column;
+        line-height: 0.8;
+        z-index: 1;
+    }
+
+    .title-section h1,
+    .title-section p {
+        font-size: 9rem;
+        font-weight: bold;
+        letter-spacing: -7px;
+        margin: 0;
+        color: #000;
+    }
+
+    .img-section img {
+        opacity: 0;
+        position: absolute;
+        z-index: 99;
+    }
+    /* Ajustes individuales basados en tu imagen */
+
+    .img-mac {
+        /* width: 850px; */
+        width: 60vw;
+        right: -10%;
+        bottom: -5%;
+        z-index: 2;
+        transform: rotate(-5deg);
+    }
+
+    .img-teclado {
+        /* width: 700px; */
+        width: 50vw;
+        bottom: -120px;
+        left: 25%;
+        z-index: 4;
+        transform: rotate(-10deg);
+    }
+
+    .img-raton {
+        /* width: 510px; */
+        width: 35vw;
+        bottom: 25%;
+        right: 25%;
+        z-index: 3;
+        transform: rotate(20deg);
+    }
+
+    .img-folder {
+        /* width: 450px; */
+        width: 30vw;
+        bottom: -10%;
+        left: 10%;
+        z-index: 5;
+        transform: rotate(-20deg);
+    }
+
+    .img-terminal {
+        width: 45vw;
+        bottom: 390px;
+        right: -100px;
+        z-index: 6;
+        transform: rotate(5deg);
+    }
+
+    .sub-title-mobile {
+        display: none;
+    }
+
+    /* =========================
+   DOWN: pantallas más pequeñas
+   ========================= */
+
+    /* <= 1279px (laptops pequeños / tablet landscape) */
+    @media (max-width: 1279px) {
+        /* ajusta columnas, paddings, tamaños */
+    }
+
+    /* <= 1023px (tablet) */
+    @media (max-width: 1023px) {
+        /* pasa a 1-2 columnas, reduce gaps */
+    }
+
+    /* <= 767px (móvil grande / phablet) */
+    @media (max-width: 767px) {
+        /* 1 columna, botones al 100%, tipografía más compacta */
+
+        .hero-container {
+            display: flex;
+            flex-direction: column;
+            justify-content: start;
+            align-items: center;
+        }
+
+        .title-section {
+            margin-top: 5rem;
+        }
+
+        .title-section h1,
+        .title-section p {
+            font-size: 4rem;
+            font-weight: bold;
+            letter-spacing: -1px;
+            margin: 0;
+            color: #000;
+            text-align: center;
+        }
+
+        .img-section .img-terminal {
+            bottom: 7vh;
+            left: -47px;
+            width: 60vw;
+            z-index: 1;
+        }
+
+        .img-mac {
+            width: 77vw;
+            bottom: -2%;
+        }
+
+        .img-teclado {
+            width: 50vw;
+            bottom: -49px;
+            z-index: 1;
+        }
+
+        .img-folder {
+            width: 51vw;
+            bottom: -4%;
+            left: -7%;
+        }
+
+        .img-raton {
+            width: 35vw;
+            bottom: -5%;
+            right: 78%;
+        }
+
+        .sub-title-mobile {
+            display: block;
+            margin-top: 6rem;
+        }
+
+        .sub-title-mobile p {
+            color: #6b6159;
+            font-size: 1.5rem;
+        }
+    }
+
+    /* <= 479px (móvil pequeño) */
+    @media (max-width: 479px) {
+        /* aún más compacto */
+    }
+</style>
+
+<script>
+    import gsap from "gsap";
+    import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+    gsap.registerPlugin(ScrollTrigger);
+
+    gsap.to(".img-section img", {
+        duration: 0.4, // Mucho más rápido (antes 0.6 o 0.8)
+        scale: 1,
+        opacity: 1,
+        startAt: { scale: 0, opacity: 0 },
+        stagger: {
+            amount: 0.3, // Todas las imágenes terminan de salir en solo 0.3s
+            from: "random", // Mantiene el desorden orgánico
+        },
+        // "back.out(3)" aumenta la fuerza del rebote, haciéndolo más agresivo
+        ease: "back.out(2)",
+        force3D: true,
+        transformOrigin: "center center",
+    });
+
+    window.addEventListener("mousemove", (e) => {
+        const { clientX, clientY } = e;
+        const xPos = clientX / window.innerWidth - 0.5;
+        const yPos = clientY / window.innerHeight - 0.5;
+
+        gsap.to(".img-section img", {
+            duration: 1,
+            x: (index) => xPos * (10 * (index + 1)), // Cada imagen se mueve a distinta velocidad
+            y: (index) => yPos * (10 * (index + 1)),
+            ease: "power2.out",
+            overwrite: "auto",
+        });
+    });
+</script>
