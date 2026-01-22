@@ -1,7 +1,7 @@
 ---
-import PruebaLocaEscena from '../components/manifiesto/pruebaLocaEscena';
-import Scene from '../components/portada/Scene.jsx';
-import Layout from '../layouts/Layout.astro';
+import PruebaLocaEscena from "../components/manifiesto/pruebaLocaEscena";
+import Scene from "../components/portada/Scene.jsx";
+import Layout from "../layouts/Layout.astro";
 
 // Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
 // Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
@@ -9,7 +9,27 @@ import Layout from '../layouts/Layout.astro';
 
 <Layout>
 	<div class="relative h-screen">
+		<header>
+			<span>SERIOUSLY</span>
+			<span>GOOD</span>
+			<span>DEVELOPER</span>
+		</header>
 		<Scene client:only="react" />
-		<PruebaLocaEscena client:only="react" />
+		<!-- <PruebaLocaEscena client:only="react" /> -->
 	</div>
 </Layout>
+
+<style>
+	header {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		width: 100%;
+		color: white;
+		font-family: Helvetica, sans-serif;
+		font-weight: bold;
+		padding: 1rem;
+		position: absolute;
+		top: 0;
+	}
+</style>
