@@ -1,11 +1,28 @@
 ---
+import Experience from "../../public/experience/experience.astro";
+import AboutMe from "../components/about-me/about-me.astro";
 import Portada from "../components/portada/portada.astro";
 import Layout from "../layouts/Layout.astro";
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+import Contact from "../components/contact/contact.astro";
+import Footer from "../components/footer.astro";
 ---
 
 <Layout>
 	<Portada />
-	<h1>hola</h1>
+
+	<!-- <div class="about-me-container">
+		<AboutMe />
+	</div>
+
+	<Experience />
+	<Contact />
+	<Footer /> -->
 </Layout>
+
+<style>
+	@media (max-width: 767px) {
+		.about-me-container {
+			display: none;
+		}
+	}
+</style>

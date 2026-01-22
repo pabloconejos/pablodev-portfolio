@@ -1,15 +1,36 @@
 <section class="hero-container">
     <article class="title-section">
         <h1>Pablo Conejos</h1>
-        <p>Developer</p>
+        <div class="sub-title-section">
+            <p class="main-subtitle">
+                <span id="1">D</span>
+                <span id="2">e</span>
+                <span id="3">v</span>
+                <span id="4">l</span>
+                <span id="5">o</span>
+                <span id="6">p</span>
+                <span id="7">e</span>
+                <span id="8">r</span>
+            </p>
+            <p class="sub-subtitle">
+                <span id="1">D</span>
+                <span id="2">e</span>
+                <span id="3">v</span>
+                <span id="4">l</span>
+                <span id="5">o</span>
+                <span id="6">p</span>
+                <span id="7">e</span>
+                <span id="8">r</span>
+            </p>
+        </div>
 
-        <div class="sub-title-mobile">
+        <!-- <div class="sub-title-mobile">
             <p>APIs, SQL & Performance</p>
             <p>UX & Business Focused</p>
             <p>Software Developer</p>
             <p>End-to-End Apps</p>
             <p>Based in Spain</p>
-        </div>
+        </div> -->
     </article>
 
     <div class="img-section">
@@ -65,6 +86,32 @@
         letter-spacing: -7px;
         margin: 0;
         color: #000;
+    }
+
+    .main-subtitle,
+    .sub-subtitle {
+        display: flex;
+    }
+
+    .sub-title-section {
+        position: relative;
+    }
+
+    .sub-subtitle {
+        position: absolute;
+        bottom: 0;
+        font-family: "Pixelify Sans", sans-serif;
+        font-optical-sizing: auto;
+        font-style: normal;
+        left: 11px;
+    }
+
+    .sub-subtitle span {
+        opacity: 0;
+    }
+
+    .main-subtitle span {
+        opacity: 1;
     }
 
     .img-section img {
@@ -214,6 +261,32 @@
 
     gsap.registerPlugin(ScrollTrigger);
 
+    // gsap.registerPlugin(ScrollTrigger);
+
+    const tl = gsap.timeline({ defaults: { ease: "power4.out" } });
+
+    // 1. Animación para "Pablo Conejos" (El H1)
+    tl.from(".title-section h1", {
+        duration: 1.5,
+        y: 40, // Viene de abajo
+        opacity: 0,
+        skewY: 2, // Un ligero toque de inclinación para que se sienta orgánico
+        delay: 0.2,
+    });
+
+    // 2. Animación para las letras de "Developer" (staggered)
+    // Animamos el contenedor y las letras al mismo tiempo
+    tl.from(
+        ".main-subtitle span",
+        {
+            duration: 1,
+            opacity: 0,
+            y: 20,
+            stagger: 0.05, // Aparecen una por una de forma fluida
+        },
+        "-=1",
+    );
+
     gsap.to(".img-section img", {
         duration: 0.4, // Mucho más rápido (antes 0.6 o 0.8)
         scale: 1,
@@ -241,5 +314,30 @@
             ease: "power2.out",
             overwrite: "auto",
         });
+    });
+
+    const letrasMain = document.querySelectorAll<HTMLElement>(
+        ".main-subtitle span",
+    );
+    const letrasSub =
+        document.querySelectorAll<HTMLElement>(".sub-subtitle span");
+
+    let intervalo = 500;
+
+    function ocultarLetras() {
+        const randomNumber = Math.floor(Math.random() * 8);
+        letrasMain[randomNumber].style.opacity = "0";
+        letrasSub[randomNumber].style.opacity = "1";
+
+        setTimeout(() => {
+            letrasMain[randomNumber].style.opacity = "1";
+            letrasSub[randomNumber].style.opacity = "0";
+        }, intervalo);
+    }
+
+    window.addEventListener("load", () => {
+        setTimeout(() => {
+            setInterval(ocultarLetras, intervalo);
+        }, 1500);
     });
 </script>
