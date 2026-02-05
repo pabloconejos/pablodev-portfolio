@@ -1,0 +1,304 @@
+---
+const unsplashIds = [
+    "https://raw.githubusercontent.com/bestofjs/bestofjs/d474354627887bcf663d92b70ec077289da8af1e/apps/web/public/logos/angular.svg",
+    "https://raw.githubusercontent.com/bestofjs/bestofjs/d474354627887bcf663d92b70ec077289da8af1e/apps/web/public/logos/react.svg",
+    "https://raw.githubusercontent.com/bestofjs/bestofjs/d474354627887bcf663d92b70ec077289da8af1e/apps/web/public/logos/vue.svg",
+    "https://raw.githubusercontent.com/bestofjs/bestofjs/d474354627887bcf663d92b70ec077289da8af1e/apps/web/public/logos/nodejs.svg",
+    "https://raw.githubusercontent.com/bestofjs/bestofjs/d474354627887bcf663d92b70ec077289da8af1e/apps/web/public/logos/nextjs.svg",
+    "https://raw.githubusercontent.com/bestofjs/bestofjs/d474354627887bcf663d92b70ec077289da8af1e/apps/web/public/logos/astro.svg",
+    "https://raw.githubusercontent.com/bestofjs/bestofjs/d474354627887bcf663d92b70ec077289da8af1e/apps/web/public/logos/svelte.svg",
+    "https://raw.githubusercontent.com/bestofjs/bestofjs/d474354627887bcf663d92b70ec077289da8af1e/apps/web/public/logos/ember.svg",
+    "https://raw.githubusercontent.com/bestofjs/bestofjs/d474354627887bcf663d92b70ec077289da8af1e/apps/web/public/logos/vue.svg",
+    "https://raw.githubusercontent.com/bestofjs/bestofjs/d474354627887bcf663d92b70ec077289da8af1e/apps/web/public/logos/nodejs.svg",
+    "https://raw.githubusercontent.com/bestofjs/bestofjs/d474354627887bcf663d92b70ec077289da8af1e/apps/web/public/logos/nextjs.svg",
+    "https://raw.githubusercontent.com/bestofjs/bestofjs/d474354627887bcf663d92b70ec077289da8af1e/apps/web/public/logos/astro.svg",
+    "https://raw.githubusercontent.com/bestofjs/bestofjs/d474354627887bcf663d92b70ec077289da8af1e/apps/web/public/logos/svelte.svg",
+    "https://raw.githubusercontent.com/bestofjs/bestofjs/d474354627887bcf663d92b70ec077289da8af1e/apps/web/public/logos/ember.svg",
+];
+
+const imageSources = unsplashIds.map((id) => `${id}`);
+---
+
+<div class="portada" aria-hidden="true">
+    {
+        imageSources.map((src, index) => (
+            <img
+                class="image inactive"
+                data-index={index}
+                src={src}
+                alt={`Portfolio image ${index + 1}`}
+                loading="eager"
+                decoding="async"
+            />
+        ))
+    }
+</div>
+
+<style>
+    .portada {
+        position: absolute;
+        max-height: 100vh;
+        top: 0;
+        inset: 0;
+        overflow: hidden;
+        pointer-events: none;
+    }
+
+    .image {
+        position: absolute;
+        left: 0;
+        top: 0;
+
+        width: min(250px, 60vw);
+        height: auto;
+
+        transform: translate(-50%, -50%) scale(1);
+        opacity: 0;
+
+        /* overlay negro animable */
+        --black: 0;
+        filter: brightness(calc(1 - var(--black)));
+
+        transition:
+            opacity 200ms ease,
+            transform 200ms ease,
+            filter 200ms ease;
+
+        will-change: transform, opacity, filter, left, top;
+
+        user-select: none;
+        -webkit-user-drag: none;
+    }
+
+    .image.active {
+        opacity: 1;
+        --black: 0;
+        transform: translate(-50%, -50%) scale(1);
+    }
+
+    /* se hace más pequeño + se va a negro + se desvanece */
+    .image.fading {
+        opacity: 0;
+        --black: 0.95; /* casi negro */
+        transform: translate(-50%, -50%) scale(0.75);
+    }
+
+    .image.inactive {
+        opacity: 0;
+        --black: 0;
+        transform: translate(-50%, -50%) scale(1);
+    }
+
+    @media (max-width: 480px) {
+        .image {
+            width: min(260px, 70vw);
+            border-radius: 12px;
+        }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+        .image {
+            transition: none;
+        }
+    }
+</style>
+
+<script is:inline>
+    (() => {
+        const container = document.querySelector(".portada");
+        if (!container) return;
+
+        const images = Array.from(container.querySelectorAll(".image"));
+        const total = images.length;
+
+        let globalIndex = 0;
+        let last = { x: 0, y: 0 };
+
+        let activeQueue = [];
+        let fadeTimeout = null;
+        let isFading = false;
+
+        const TIMEOUTS = new Set();
+
+        // ---- FOLLOW "IMÁN" (SPRING) ----
+        const FOLLOW = new Map(); // index -> { x,y, vx,vy, tx,ty }
+        let lastActiveIndex = null;
+        let rafId = null;
+
+        // Feeling "imán"
+        const STIFFNESS = 0.14; // fuerza del muelle (↑ más pegado)
+        const DAMPING = 0.78; // fricción (↓ más rebote)
+        const MAX_STEP = 40; // seguridad anti saltos
+
+        const safeSetTimeout = (fn, ms) => {
+            const t = setTimeout(() => {
+                TIMEOUTS.delete(t);
+                fn();
+            }, ms);
+            TIMEOUTS.add(t);
+            return t;
+        };
+
+        const setStatus = (index, status) => {
+            const img = images[index];
+            if (!img) return;
+            img.classList.remove("inactive", "active", "fading");
+            img.classList.add(status);
+
+            // si deja de estar activa, ya no la seguimos
+            if (status !== "active") {
+                FOLLOW.delete(index);
+                if (lastActiveIndex === index) lastActiveIndex = null;
+            }
+        };
+
+        // RAF: sigue suavemente el cursor con efecto imán
+        const tick = () => {
+            if (lastActiveIndex != null && FOLLOW.has(lastActiveIndex)) {
+                const st = FOLLOW.get(lastActiveIndex);
+                const img = images[lastActiveIndex];
+
+                if (img && img.classList.contains("active")) {
+                    const dx = st.tx - st.x;
+                    const dy = st.ty - st.y;
+
+                    // muelle + fricción
+                    st.vx = (st.vx + dx * STIFFNESS) * DAMPING;
+                    st.vy = (st.vy + dy * STIFFNESS) * DAMPING;
+
+                    // limita salto por frame
+                    const stepX = Math.max(
+                        -MAX_STEP,
+                        Math.min(MAX_STEP, st.vx),
+                    );
+                    const stepY = Math.max(
+                        -MAX_STEP,
+                        Math.min(MAX_STEP, st.vy),
+                    );
+
+                    st.x += stepX;
+                    st.y += stepY;
+
+                    img.style.left = `${st.x}px`;
+                    img.style.top = `${st.y}px`;
+                }
+            }
+
+            rafId = requestAnimationFrame(tick);
+        };
+
+        rafId = requestAnimationFrame(tick);
+
+        const activate = (imageIndex, x, y) => {
+            const img = images[imageIndex];
+            if (!img) return;
+
+            img.style.zIndex = String(globalIndex);
+            setStatus(imageIndex, "active");
+
+            // registrar seguimiento "imán"
+            lastActiveIndex = imageIndex;
+            FOLLOW.set(imageIndex, { x, y, vx: 0, vy: 0, tx: x, ty: y });
+
+            // se apaga sola tras X ms
+            safeSetTimeout(() => {
+                setStatus(imageIndex, "fading");
+                safeSetTimeout(() => setStatus(imageIndex, "inactive"), 200);
+            }, 500); // <- “vida” de la imagen (ajústalo)
+
+            last = { x, y };
+        };
+
+        const distanceFromLast = (x, y) => Math.hypot(x - last.x, y - last.y);
+
+        const startFading = () => {
+            if (isFading || activeQueue.length === 0) return;
+            isFading = true;
+
+            const fadeNext = () => {
+                if (activeQueue.length === 0) {
+                    isFading = false;
+                    return;
+                }
+
+                const oldest = activeQueue.shift();
+                const idx = oldest.index;
+
+                setStatus(idx, "fading");
+
+                safeSetTimeout(() => {
+                    setStatus(idx, "inactive");
+                    safeSetTimeout(fadeNext, 150);
+                }, 200);
+            };
+
+            fadeNext();
+        };
+
+        const resetFadeTimer = () => {
+            if (fadeTimeout) clearTimeout(fadeTimeout);
+            isFading = false;
+            fadeTimeout = setTimeout(startFading, 500);
+        };
+
+        const getPoint = (e) => {
+            if (e.touches && e.touches[0])
+                return { x: e.touches[0].clientX, y: e.touches[0].clientY };
+            return { x: e.clientX, y: e.clientY };
+        };
+
+        const handleMove = (e) => {
+            const { x, y } = getPoint(e);
+
+            // actualizar target de la última activa (aunque no spawnee nueva)
+            if (lastActiveIndex != null && FOLLOW.has(lastActiveIndex)) {
+                const st = FOLLOW.get(lastActiveIndex);
+                st.tx = x;
+                st.ty = y;
+            }
+
+            // spawn por distancia
+            if (distanceFromLast(x, y) > window.innerWidth / 10) {
+                const leadIndex = globalIndex % total;
+
+                const tailIndexRaw = globalIndex - 12;
+                const tailIndex = ((tailIndexRaw % total) + total) % total;
+
+                activate(leadIndex, x, y);
+                activeQueue.push({ index: leadIndex });
+
+                // cortar cola para que no se acumulen
+                if (tailIndexRaw >= 0) {
+                    setStatus(tailIndex, "inactive");
+                    activeQueue = activeQueue.filter(
+                        (it) => it.index !== tailIndex,
+                    );
+                }
+
+                globalIndex++;
+            }
+
+            resetFadeTimer();
+        };
+
+        const handleMouseLeave = () => {
+            if (fadeTimeout) clearTimeout(fadeTimeout);
+            fadeTimeout = setTimeout(startFading, 500);
+        };
+
+        window.addEventListener("mousemove", handleMove, { passive: true });
+        window.addEventListener("touchmove", handleMove, { passive: true });
+        window.addEventListener("mouseleave", handleMouseLeave);
+
+        window.addEventListener("beforeunload", () => {
+            window.removeEventListener("mousemove", handleMove);
+            window.removeEventListener("touchmove", handleMove);
+            window.removeEventListener("mouseleave", handleMouseLeave);
+            if (fadeTimeout) clearTimeout(fadeTimeout);
+            for (const t of TIMEOUTS) clearTimeout(t);
+            TIMEOUTS.clear();
+            if (rafId) cancelAnimationFrame(rafId);
+            FOLLOW.clear();
+        });
+    })();
+</script>

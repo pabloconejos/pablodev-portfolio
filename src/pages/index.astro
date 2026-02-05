@@ -1,10 +1,9 @@
 ---
-import PruebaLocaEscena from "../components/manifiesto/pruebaLocaEscena";
+import AboutMe from "../components/aboutMe.astro";
+import Memoji from "../components/memoji.astro";
 import Scene from "../components/portada/Scene.jsx";
 import Layout from "../layouts/Layout.astro";
-
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+import Sticker_angular from "../components/stickers/Sticker-angular.astro";
 ---
 
 <Layout>
@@ -15,8 +14,11 @@ import Layout from "../layouts/Layout.astro";
 			<span>DEVELOPER</span>
 		</header>
 		<Scene client:only="react" />
-		<!-- <PruebaLocaEscena client:only="react" /> -->
 	</div>
+	<AboutMe />
+	<Memoji />
+
+	<!-- <Sticker_angular /> -->
 </Layout>
 
 <style>

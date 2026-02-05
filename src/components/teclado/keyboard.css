@@ -1,0 +1,121 @@
+:root {
+    --gap: 0.7rem;
+
+    --gray-100: #f1f5f9;
+    --gray-200: #e2e8f0;
+    --gray-300: #cbd5e1;
+    --gray-400: #94a3b8;
+    --gray-700: #334155;
+    --gray-800: #1e293b;
+    --gray-900: #0f172a;
+
+    --orange-300: #fbd38d;
+    --orange-400: #f6ad55;
+    --orange-500: #ed8936;
+}
+
+html,
+body {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    font-family: "BioRhyme", serif;
+    background: var(--gray-300);
+    display: grid;
+    place-items: center;
+}
+
+/* Container */
+.keyboard {
+    position: relative;
+    background: var(--gray-800);
+    border-radius: 1.5rem;
+    padding: 1.2rem;
+    display: flex;
+    flex-direction: column;
+    gap: var(--gap);
+
+    box-shadow:
+        inset 0.4rem 0.4rem 0 0.25rem var(--gray-400),
+        0 2.2rem 3.2rem rgba(15, 23, 42, 0.25);
+}
+
+/* Rows */
+.row {
+    display: flex;
+    gap: var(--gap);
+    align-items: stretch;
+}
+
+/* Key */
+.key {
+    --u: 1;
+    width: calc(var(--u) * 4.2rem + (var(--u) - 1) * var(--gap));
+    height: 4.2rem;
+
+    position: relative;
+    user-select: none;
+    border-radius: 0.9rem;
+
+    background: linear-gradient(var(--gray-100) 45%, var(--gray-300) 60%);
+    box-shadow:
+        0 0.35rem 0 rgba(15, 23, 42, 0.20),
+        0 0.9rem 1.2rem rgba(15, 23, 42, 0.25);
+
+    transition: transform 0.06s ease-out, box-shadow 0.06s ease-out;
+}
+
+.key .top {
+    position: absolute;
+    inset: 0.35rem 0.35rem 0.65rem 0.35rem;
+    border-radius: 0.75rem;
+    background: var(--gray-200);
+
+    box-shadow:
+        inset -0.15rem -0.15rem 0.55rem rgba(255, 255, 255, 0.65),
+        inset 0.2rem 0.2rem 0.75rem rgba(15, 23, 42, 0.15);
+}
+
+.key .char {
+    position: absolute;
+    inset: 0;
+    display: grid;
+    place-items: center;
+    font-size: 1.4rem;
+    color: var(--gray-700);
+    letter-spacing: 0.02em;
+
+    text-shadow:
+        0.03rem 0.03rem 0 var(--gray-100),
+        0.07rem 0.07rem 0 rgba(15, 23, 42, 0.25);
+}
+
+/* Pressed */
+.key.active {
+    transform: translateY(0.22rem);
+    box-shadow:
+        0 0.18rem 0 rgba(15, 23, 42, 0.18),
+        0 0.55rem 0.9rem rgba(15, 23, 42, 0.22);
+}
+
+.key.active .top {
+    inset: 0.45rem 0.35rem 0.55rem 0.35rem;
+}
+
+/* Orange keys */
+.key.orange {
+    background: linear-gradient(var(--orange-300) 55%, var(--orange-500) 70%);
+}
+
+.key.orange .top {
+    background: var(--orange-400);
+}
+
+.key.orange .char {
+    color: var(--gray-900);
+}
+
+/* Smaller label */
+.key.small .char {
+    font-size: 1.05rem;
+}

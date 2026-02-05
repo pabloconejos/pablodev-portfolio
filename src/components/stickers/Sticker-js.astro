@@ -1,0 +1,611 @@
+<svg class="sr-only" aria-hidden="true">
+    <filter id="sticker">
+        <feMorphology
+            in="SourceAlpha"
+            result="dilate"
+            operator="dilate"
+            radius="2"></feMorphology>
+        <feFlood flood-color="#fafafa" result="outlinecolor"></feFlood>
+        <feTurbulence
+            baseFrequency="0.03"
+            seed="1"
+            numOctaves="3"
+            type="turbulence"
+            result="turb"></feTurbulence>
+        <feComposite in="turb" in2="dilate" operator="in" result="outline"
+        ></feComposite>
+        <feComposite
+            in="outlinecolor"
+            in2="dilate"
+            operator="in"
+            result="outlineflat"></feComposite>
+
+        <feMerge result="merged">
+            <feMergeNode in="outlineflat"></feMergeNode>
+            <feMergeNode in="outline"></feMergeNode>
+            <feMergeNode in="SourceGraphic"></feMergeNode>
+        </feMerge>
+
+        <feGaussianBlur in="SourceAlpha" stdDeviation="3" result="blur"
+        ></feGaussianBlur>
+
+        <feSpecularLighting
+            result="lighting"
+            in="blur"
+            surfaceScale="5"
+            specularConstant="0.5"
+            specularExponent="120"
+            lighting-color="#ffffff"
+        >
+            <fePointLight x="50" y="50" z="300"></fePointLight>
+        </feSpecularLighting>
+
+        <feComposite
+            in="lighting"
+            in2="SourceAlpha"
+            operator="in"
+            result="composite"></feComposite>
+        <feComposite
+            in="merged"
+            in2="composite"
+            operator="arithmetic"
+            k1="0"
+            k2="1"
+            k3="1"
+            k4="0"
+            result="litPaint"></feComposite>
+
+        <feDropShadow
+            dx="0"
+            dy="2"
+            stdDeviation="2"
+            flood-color="#000"
+            flood-opacity="0.5"></feDropShadow>
+    </filter>
+</svg>
+
+<!-- Sticker -->
+<div class="sticker">
+    <!-- Tu SVG grande -->
+    <svg
+        version="1.0"
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 2048.000000 2048.000000"
+        preserveAspectRatio="xMidYMid meet"
+    >
+        <g
+            transform="translate(0.000000,2048.000000) scale(0.100000,-0.100000)"
+            fill="#000000"
+            stroke="none"
+        >
+            <path
+                d="M12020 18345 c0 -15 11 -40 78 -185 19 -41 43 -100 53 -129 11 -30
+26 -65 34 -78 8 -12 15 -27 15 -34 0 -6 9 -22 20 -36 11 -14 20 -35 20 -47 0
+-11 9 -32 20 -46 11 -14 20 -32 20 -40 0 -8 9 -26 20 -40 11 -14 20 -31 20
+-38 0 -7 4 -20 9 -30 24 -48 91 -193 111 -237 12 -27 39 -86 60 -130 21 -44
+52 -109 68 -145 17 -36 44 -95 61 -133 17 -37 31 -71 31 -75 0 -4 9 -18 20
+-32 11 -14 20 -32 20 -42 0 -9 22 -60 50 -115 27 -54 50 -102 50 -108 0 -5 9
+-21 20 -35 11 -14 20 -31 20 -39 0 -12 56 -137 93 -206 20 -38 25 -50 42 -90
+20 -46 56 -124 132 -285 30 -63 58 -124 63 -135 4 -11 27 -58 49 -105 22 -47
+61 -130 86 -185 26 -55 62 -132 81 -170 19 -39 34 -75 34 -80 0 -6 9 -28 19
+-50 21 -45 93 -199 121 -260 10 -22 31 -69 48 -105 17 -36 36 -81 43 -100 7
+-19 18 -42 24 -50 11 -13 49 -92 75 -155 4 -11 31 -67 58 -125 95 -199 112
+-238 112 -254 0 -9 4 -16 9 -16 5 0 13 -10 16 -22 4 -13 27 -64 51 -115 24
+-50 44 -99 44 -107 0 -9 4 -16 9 -16 5 0 13 -10 16 -22 4 -13 27 -66 52 -118
+24 -52 53 -114 64 -137 45 -99 64 -138 72 -141 4 -2 7 -14 7 -26 0 -13 9 -35
+20 -49 11 -14 20 -31 20 -39 0 -7 9 -24 20 -38 11 -14 20 -31 20 -38 0 -7 4
+-20 9 -30 6 -9 24 -51 42 -92 18 -41 39 -82 46 -91 7 -8 13 -21 13 -29 0 -7
+25 -64 55 -127 30 -63 55 -118 55 -123 0 -5 27 -62 60 -127 33 -65 60 -125 60
+-133 0 -8 9 -26 20 -40 11 -14 20 -31 20 -38 0 -8 9 -25 20 -39 11 -14 20 -33
+20 -42 0 -14 27 -78 52 -121 10 -17 26 -55 40 -90 6 -14 15 -34 21 -45 20 -39
+50 -100 58 -120 4 -11 35 -78 69 -150 34 -71 70 -148 80 -170 38 -84 104 -223
+146 -310 24 -50 44 -94 44 -97 0 -4 28 -67 63 -140 35 -73 70 -149 77 -168 8
+-19 22 -46 32 -59 10 -13 18 -30 18 -37 0 -8 20 -56 44 -107 24 -50 57 -121
+72 -157 16 -36 41 -85 56 -109 15 -25 28 -51 28 -58 0 -7 4 -21 9 -31 5 -9 14
+-28 20 -42 6 -14 15 -32 20 -40 5 -8 18 -35 29 -60 11 -25 39 -85 62 -135 24
+-49 46 -99 50 -110 4 -11 31 -69 60 -130 28 -60 55 -119 60 -130 4 -11 33 -72
+63 -135 54 -113 74 -156 117 -255 22 -49 114 -244 151 -318 10 -22 19 -43 19
+-48 0 -4 14 -30 30 -56 17 -26 30 -53 30 -60 0 -7 21 -57 46 -110 25 -54 52
+-114 61 -133 15 -37 23 -51 54 -107 10 -18 19 -40 19 -48 0 -8 5 -15 10 -15 6
+0 10 -7 10 -15 0 -15 30 -89 53 -130 18 -34 49 -99 57 -120 10 -26 48 -106 59
+-125 5 -8 13 -26 18 -40 10 -24 38 -84 60 -125 6 -11 15 -31 21 -45 38 -92 79
+-179 94 -202 10 -14 18 -31 18 -37 0 -6 4 -19 9 -29 11 -20 62 -130 87 -187 9
+-22 41 -91 71 -153 29 -62 53 -115 53 -117 0 -4 55 -126 69 -155 5 -8 18 -16
+30 -18 20 -3 21 0 21 111 0 62 3 117 8 121 4 4 13 114 19 244 33 619 39 711
+46 718 4 4 7 60 7 125 0 65 4 120 9 123 5 3 12 108 16 233 4 126 10 233 14
+238 3 6 12 116 19 245 7 129 17 289 22 355 5 66 15 226 22 355 7 129 16 240
+19 245 4 6 10 114 14 240 4 127 10 235 14 240 3 6 12 116 19 245 7 129 17 289
+22 355 21 262 28 385 29 486 1 58 4 109 9 113 4 4 13 114 20 244 7 130 17 291
+22 357 5 66 15 228 23 360 8 132 15 240 17 240 3 0 19 269 43 717 6 130 15
+240 20 244 4 4 7 58 7 119 0 61 3 115 8 119 7 7 17 175 45 713 6 133 15 245
+20 249 4 4 7 57 7 119 0 63 4 115 10 121 7 7 10 58 8 133 l-3 122 -110 50
+c-60 28 -153 71 -205 95 -214 102 -266 126 -285 134 -11 5 -78 36 -150 70 -71
+34 -139 65 -150 70 -11 4 -58 27 -105 49 -47 23 -132 63 -190 90 -58 26 -135
+62 -171 80 -37 17 -72 31 -78 31 -6 0 -11 5 -11 10 0 6 -7 10 -15 10 -8 0 -50
+18 -93 39 -42 22 -99 49 -127 61 -27 13 -59 27 -70 33 -32 17 -67 34 -110 52
+-22 9 -49 22 -60 28 -52 28 -137 67 -148 67 -6 0 -23 9 -37 20 -14 11 -31 20
+-38 20 -7 0 -47 18 -89 40 -43 22 -85 40 -95 40 -10 0 -18 4 -18 9 0 5 -15 14
+-32 21 -31 11 -183 81 -220 101 -10 5 -24 9 -32 9 -7 0 -19 6 -25 14 -7 8 -24
+17 -38 21 -15 3 -38 14 -52 24 -14 9 -53 27 -86 41 -33 13 -72 31 -87 42 -14
+10 -34 18 -43 18 -9 0 -28 9 -42 20 -14 11 -32 20 -39 20 -14 0 -28 6 -74 30
+-35 19 -107 54 -155 75 -22 9 -95 44 -163 76 -67 32 -128 59 -135 59 -7 0 -33
+10 -58 21 -24 12 -98 47 -164 79 -66 32 -151 72 -190 90 -81 38 -237 112 -380
+180 -55 26 -131 62 -170 80 -106 49 -227 106 -360 170 -181 86 -210 100 -221
+100 -5 0 -20 9 -34 20 -14 11 -31 20 -38 20 -7 0 -50 18 -96 40 -46 22 -88 40
+-95 40 -6 0 -11 4 -11 9 0 5 -12 12 -27 16 -16 3 -44 13 -63 22 -45 19 -200
+94 -220 105 -36 20 -103 48 -116 48 -8 0 -14 -7 -14 -15z"
+            ></path>
+            <path
+                d="M8318 18264 c-2 -2 -49 -8 -103 -13 -65 -6 -114 -16 -140 -29 -57
+-29 -314 -149 -402 -188 -92 -40 -115 -50 -193 -86 -47 -22 -116 -54 -155 -73
+-38 -18 -101 -48 -140 -65 -38 -18 -135 -64 -215 -102 -261 -125 -304 -146
+-375 -178 -38 -18 -79 -37 -90 -43 -59 -31 -137 -67 -148 -67 -6 0 -23 -9 -37
+-20 -14 -11 -30 -20 -37 -20 -6 0 -47 -18 -90 -39 -43 -21 -117 -57 -165 -80
+-176 -82 -430 -202 -543 -256 -38 -18 -92 -43 -120 -55 -27 -13 -102 -47 -165
+-77 -233 -111 -374 -177 -435 -203 -43 -18 -85 -39 -164 -80 -9 -5 -34 -16
+-56 -25 -22 -10 -80 -37 -130 -60 -49 -24 -120 -57 -157 -74 -176 -80 -208
+-95 -283 -131 -349 -165 -466 -220 -470 -220 -5 0 -145 -66 -330 -155 -71 -34
+-156 -74 -187 -89 -117 -53 -174 -79 -208 -93 -19 -9 -77 -36 -128 -61 l-93
+-45 6 -141 c4 -78 11 -172 16 -209 5 -38 7 -97 3 -131 -4 -43 -3 -66 5 -70 7
+-5 11 -48 11 -125 0 -64 4 -121 9 -126 6 -6 12 -62 15 -125 11 -246 25 -480
+36 -580 6 -58 11 -134 10 -170 0 -36 4 -119 10 -185 6 -66 14 -178 19 -250 5
+-71 17 -236 27 -365 9 -129 18 -280 19 -335 1 -55 5 -107 8 -115 4 -8 9 -64
+11 -125 3 -60 10 -193 16 -295 6 -102 12 -219 14 -260 3 -41 7 -102 11 -135 4
+-33 11 -143 16 -245 5 -102 14 -241 20 -310 6 -69 12 -170 14 -225 3 -55 9
+-149 14 -210 5 -60 15 -218 21 -350 6 -132 15 -249 20 -260 5 -11 11 -134 14
+-273 4 -139 11 -274 16 -300 9 -42 23 -254 36 -557 2 -60 9 -119 13 -130 5
+-11 12 -110 16 -220 3 -110 10 -225 16 -255 5 -30 14 -145 20 -255 5 -110 14
+-252 19 -315 5 -63 14 -191 19 -285 5 -93 15 -231 21 -305 7 -74 15 -186 18
+-249 8 -136 20 -150 57 -64 14 32 30 67 35 78 64 140 90 198 90 201 0 2 25 57
+56 121 144 302 228 481 254 538 12 28 41 91 65 140 24 50 57 121 75 159 35 78
+84 184 140 301 21 44 49 105 63 135 13 30 48 105 77 165 73 156 112 237 160
+340 84 178 108 231 149 320 23 50 59 126 80 170 46 96 98 207 139 295 16 36
+46 99 65 140 19 41 48 104 64 140 48 105 52 114 62 130 14 24 131 269 131 275
+0 3 15 38 34 78 18 40 49 106 69 148 19 42 40 80 46 83 6 4 11 15 11 25 0 10
+18 56 41 102 89 184 159 338 159 350 0 6 8 23 18 37 18 27 23 38 62 127 27 62
+35 81 51 125 7 19 30 73 52 120 21 47 52 114 68 150 17 36 41 88 54 115 13 28
+40 86 60 130 20 44 54 116 75 160 57 119 116 245 135 290 10 22 48 103 85 180
+37 77 75 158 84 180 10 22 33 72 51 110 18 39 54 115 80 170 26 55 55 118 65
+140 43 96 80 176 123 265 24 52 53 113 62 135 10 22 48 103 85 180 37 77 74
+156 82 175 38 85 48 106 56 120 5 8 18 36 30 63 34 77 63 141 73 160 20 39 29
+56 72 147 24 52 53 113 62 135 10 22 39 85 66 140 26 55 53 115 61 133 7 17
+16 32 20 32 5 0 8 7 8 15 0 9 27 71 59 138 33 67 78 163 101 212 23 50 50 107
+61 128 10 22 19 44 19 50 0 6 6 18 14 26 7 9 21 43 31 76 10 33 26 76 36 95
+10 19 34 71 54 115 39 83 82 174 183 385 32 69 71 150 85 180 14 30 50 108 81
+173 31 64 56 123 56 130 0 6 9 23 20 37 11 14 20 31 20 38 0 7 4 20 10 30 5 9
+24 49 41 87 51 115 88 197 119 260 44 91 120 257 120 262 0 5 34 80 82 183 17
+36 39 83 49 105 79 174 103 225 119 257 17 35 17 36 0 41 -11 3 -20 3 -22 1z"
+            ></path>
+            <path
+                d="M10212 14038 c-7 -7 -12 -23 -12 -37 0 -15 -9 -37 -20 -51 -11 -14
+-20 -33 -20 -42 0 -10 -9 -33 -20 -53 -11 -20 -20 -42 -20 -50 0 -9 -4 -23
+-10 -33 -17 -30 -66 -144 -90 -212 -13 -36 -32 -76 -42 -89 -10 -13 -18 -34
+-18 -47 0 -12 -4 -26 -10 -29 -5 -3 -10 -12 -10 -20 0 -7 -21 -57 -46 -111
+-25 -53 -48 -110 -51 -126 -3 -16 -10 -31 -14 -34 -5 -3 -9 -14 -9 -26 0 -11
+-9 -31 -20 -45 -11 -14 -20 -36 -20 -48 0 -12 -7 -28 -15 -35 -8 -7 -17 -28
+-21 -49 -4 -20 -15 -47 -25 -60 -11 -13 -19 -32 -19 -42 0 -10 -4 -21 -10 -24
+-5 -3 -10 -14 -10 -24 0 -10 -6 -31 -14 -47 -8 -16 -21 -47 -31 -69 -9 -22
+-23 -53 -30 -70 -8 -16 -17 -42 -21 -57 -3 -16 -10 -28 -15 -28 -5 0 -9 -13
+-9 -29 0 -15 -9 -40 -20 -54 -11 -14 -20 -31 -20 -39 0 -8 -4 -18 -9 -24 -5
+-5 -19 -38 -31 -74 -13 -35 -38 -96 -56 -136 -19 -39 -34 -78 -34 -86 0 -8 -7
+-23 -15 -34 -8 -10 -15 -28 -15 -39 0 -11 -9 -31 -20 -45 -11 -14 -20 -31 -20
+-38 0 -7 -9 -32 -20 -54 -11 -23 -20 -45 -20 -50 0 -5 -8 -27 -19 -51 -10 -23
+-29 -69 -41 -102 -13 -33 -27 -64 -32 -69 -4 -6 -8 -20 -8 -33 0 -13 -4 -23
+-10 -23 -5 0 -10 -6 -10 -14 0 -8 -6 -27 -14 -43 -8 -15 -25 -53 -36 -83 -12
+-30 -32 -77 -45 -105 -12 -27 -28 -67 -34 -87 -7 -21 -17 -40 -22 -43 -5 -4
+-9 -15 -9 -26 0 -10 -4 -27 -9 -37 -20 -36 -55 -117 -56 -127 -1 -5 -16 -41
+-34 -80 -31 -67 -43 -97 -71 -175 -7 -19 -21 -51 -31 -71 -11 -20 -19 -42 -19
+-49 0 -6 -9 -23 -20 -37 -11 -14 -20 -36 -20 -49 0 -12 -4 -26 -10 -29 -5 -3
+-10 -18 -10 -32 0 -13 -8 -37 -19 -51 -10 -15 -26 -49 -35 -75 -16 -49 -64
+-159 -91 -210 -8 -16 -15 -36 -15 -45 0 -16 -15 -50 -62 -143 -10 -20 -18 -43
+-18 -50 0 -13 -22 -66 -61 -144 -10 -22 -19 -46 -19 -53 0 -7 -8 -27 -17 -45
+-9 -18 -18 -38 -19 -45 -2 -13 -18 -48 -50 -116 -8 -16 -14 -35 -14 -42 0 -8
+-9 -28 -20 -46 -11 -18 -20 -39 -20 -46 0 -7 -9 -31 -20 -55 -40 -85 -102
+-243 -103 -262 -2 -20 4 -20 2063 -20 l2065 0 3 36 c2 23 -3 42 -12 52 -9 9
+-16 23 -16 31 0 9 -4 24 -9 34 -14 27 -34 76 -37 89 -1 7 -9 27 -18 44 -9 18
+-16 40 -16 50 0 10 -4 21 -10 24 -5 3 -10 14 -10 24 0 10 -6 24 -14 30 -8 7
+-18 27 -22 44 -6 30 -10 39 -34 87 -5 11 -10 27 -10 35 0 8 -4 23 -9 33 -37
+73 -51 106 -51 117 0 7 -6 26 -14 42 -26 49 -62 137 -75 178 -7 22 -17 51 -23
+65 -14 32 -29 70 -38 95 -4 11 -16 40 -27 65 -11 25 -26 61 -33 80 -6 19 -20
+53 -30 75 -10 22 -24 58 -31 80 -7 22 -16 45 -20 50 -4 6 -18 39 -32 75 -13
+36 -34 85 -45 110 -11 25 -24 58 -27 73 -4 15 -11 30 -16 33 -5 3 -9 13 -9 22
+0 15 -9 37 -52 124 -4 10 -8 26 -8 36 0 10 -4 22 -9 28 -5 5 -21 41 -36 79
+-14 39 -30 79 -35 90 -4 11 -16 43 -26 70 -9 28 -26 65 -36 83 -10 18 -18 39
+-18 47 0 9 -4 23 -9 33 -5 9 -13 28 -19 42 -5 14 -21 50 -35 80 -13 30 -35 87
+-47 125 -13 39 -29 77 -37 86 -7 8 -13 21 -13 27 0 10 -28 77 -51 124 -5 10
+-9 23 -9 30 0 11 -29 80 -51 120 -5 10 -9 24 -9 32 0 13 -19 56 -61 138 -10
+20 -19 46 -19 57 0 11 -4 22 -9 25 -4 3 -14 26 -21 51 -7 25 -17 48 -21 51 -5
+3 -9 15 -9 28 0 12 -4 26 -9 32 -5 5 -25 52 -46 104 -20 52 -43 109 -50 125
+-8 17 -32 77 -54 135 -22 58 -49 124 -60 147 -12 23 -21 47 -21 53 0 5 -4 19
+-10 30 -5 11 -14 29 -20 40 -5 11 -10 27 -10 37 0 9 -6 24 -14 32 -7 9 -21 41
+-30 71 -18 59 -18 60 -65 163 -17 37 -31 71 -31 75 0 16 -78 213 -105 265 -8
+16 -15 37 -15 47 0 11 -13 42 -30 70 -16 28 -30 59 -30 70 0 10 -4 22 -10 25
+-5 3 -10 17 -10 30 0 13 -4 27 -10 30 -5 3 -10 13 -10 21 0 8 -9 34 -21 59
+-21 46 -44 56 -67 33z"
+            ></path>
+            <path
+                d="M6972 6407 c-7 -18 -12 -39 -12 -46 0 -11 -36 -94 -71 -163 -5 -10
+-9 -25 -9 -33 0 -8 -4 -23 -9 -33 -5 -9 -17 -35 -26 -57 -10 -22 -23 -53 -31
+-69 -8 -16 -14 -37 -14 -47 0 -9 -6 -30 -14 -46 -21 -44 -43 -95 -56 -133 -14
+-41 -18 -50 -58 -150 -17 -41 -38 -96 -46 -121 -8 -25 -24 -65 -34 -90 -31
+-69 -62 -150 -62 -164 0 -7 -7 -18 -15 -25 -8 -7 -15 -23 -15 -36 0 -14 -4
+-32 -9 -42 -16 -31 -40 -92 -61 -152 -7 -19 -25 -63 -41 -98 -16 -35 -29 -69
+-29 -77 0 -8 -4 -17 -10 -20 -5 -3 -10 -15 -10 -25 0 -10 -18 -61 -40 -111
+-22 -51 -40 -103 -40 -115 0 -13 -4 -25 -9 -28 -5 -3 -11 -18 -14 -32 -6 -32
+24 -64 84 -91 22 -9 39 -20 39 -24 0 -4 10 -11 23 -15 12 -3 34 -15 49 -25 14
+-11 33 -19 40 -19 8 0 23 -9 33 -20 10 -11 22 -20 26 -20 5 0 31 -13 59 -30
+28 -16 56 -30 62 -30 6 0 20 -7 30 -17 21 -18 49 -36 94 -57 17 -8 36 -22 44
+-30 7 -9 19 -16 27 -16 8 0 27 -8 41 -19 15 -10 44 -28 65 -40 41 -23 92 -52
+152 -87 22 -13 56 -31 75 -41 19 -10 41 -23 47 -30 7 -6 39 -24 70 -40 32 -15
+60 -31 63 -34 3 -3 30 -19 60 -36 30 -16 94 -53 142 -81 48 -29 89 -52 91 -52
+5 0 124 -69 157 -91 8 -5 29 -16 45 -24 17 -8 48 -26 70 -40 22 -13 57 -34 78
+-45 20 -11 54 -29 75 -40 20 -11 55 -32 77 -45 22 -14 47 -28 55 -32 8 -4 50
+-29 93 -55 43 -26 84 -48 92 -48 7 0 18 -7 25 -15 7 -9 28 -23 46 -31 19 -9
+34 -20 34 -25 0 -5 8 -9 19 -9 10 0 29 -8 42 -19 13 -10 47 -30 74 -45 28 -14
+82 -44 120 -67 39 -22 89 -49 111 -59 23 -11 47 -27 54 -35 7 -8 20 -15 30
+-15 9 0 25 -9 35 -20 10 -11 23 -20 29 -20 6 0 22 -9 36 -20 14 -11 32 -20 41
+-20 9 0 22 -7 29 -15 7 -9 32 -25 54 -35 23 -11 64 -33 91 -50 70 -41 190
+-112 223 -130 15 -8 54 -31 87 -50 78 -45 90 -51 155 -87 30 -17 79 -44 108
+-62 29 -17 56 -31 61 -31 4 0 16 -9 26 -20 10 -11 23 -20 30 -20 7 0 32 -13
+56 -30 24 -16 51 -30 60 -30 9 0 22 -6 28 -14 7 -8 34 -26 61 -40 61 -32 118
+-34 148 -5 13 11 38 27 56 34 19 8 40 21 48 29 8 7 32 23 54 34 95 47 130 68
+142 85 7 9 21 17 31 17 9 0 21 4 27 9 5 5 26 19 47 30 54 31 96 55 147 85 25
+14 61 34 80 44 19 9 40 20 45 25 23 17 82 54 113 70 17 9 45 24 61 32 16 9 34
+22 41 30 7 8 18 15 25 15 6 0 39 17 72 39 33 21 69 42 81 45 11 4 26 13 32 21
+7 8 20 15 30 15 9 0 25 9 35 20 10 11 24 20 30 20 7 0 24 9 38 20 14 11 32 20
+40 20 7 0 22 9 32 20 10 11 22 20 28 20 5 0 29 14 54 30 24 17 50 30 57 30 8
+0 19 7 26 15 12 14 32 26 115 68 22 11 42 22 45 26 10 13 112 71 124 71 7 0
+21 9 31 20 10 11 22 20 27 20 5 0 29 13 53 30 24 16 46 30 50 30 3 0 24 12 48
+27 23 15 60 37 82 49 100 53 164 90 219 125 32 22 64 39 71 39 6 0 20 9 30 20
+10 11 25 20 33 20 9 0 25 8 36 19 12 10 50 33 86 52 36 19 90 50 120 70 30 19
+69 41 87 48 17 7 39 21 49 32 9 10 22 19 29 19 18 0 71 28 85 45 7 8 18 15 25
+15 6 0 31 14 53 30 23 17 47 30 53 30 7 0 26 10 43 23 29 22 46 32 128 73 18
+9 47 26 63 38 17 12 44 28 60 36 17 8 41 22 55 31 25 16 63 38 150 87 25 13
+52 31 61 38 8 8 20 14 25 14 5 0 47 23 94 51 47 28 104 60 127 71 39 19 43 23
+43 58 0 22 -8 48 -20 63 -11 14 -20 35 -20 46 0 12 -4 30 -10 41 -5 11 -14 29
+-20 40 -5 11 -10 27 -10 35 0 8 -4 23 -9 33 -5 9 -13 28 -18 42 -6 14 -15 36
+-21 50 -7 14 -25 62 -41 107 -17 45 -35 90 -40 100 -6 10 -22 52 -35 93 -14
+41 -34 93 -45 116 -11 22 -23 52 -26 67 -4 15 -11 30 -16 33 -5 3 -9 16 -9 30
+0 13 -4 32 -9 42 -5 9 -14 31 -21 47 -7 17 -16 39 -21 50 -5 11 -18 45 -29 75
+-28 74 -37 96 -69 158 -5 9 -15 37 -22 62 -14 48 -83 223 -99 252 -6 10 -10
+27 -10 37 0 11 -4 23 -10 26 -5 3 -10 17 -10 31 0 13 -4 24 -10 24 -5 0 -10 8
+-10 18 0 10 -6 26 -14 37 -7 11 -16 34 -20 50 -4 17 -21 58 -39 93 l-32 62
+-3215 0 -3216 0 -12 -33z"
+            ></path>
+        </g>
+    </svg>
+</div>
+
+<style>
+    /* Tu CSS tal cual, con pequeños ajustes */
+    @layer normalize, base, demo;
+
+    @layer demo {
+        .sticker {
+            width: clamp(200px, 35vmin, 400px);
+            overflow: visible;
+            filter: url("#sticker");
+            position: absolute;
+            top: 6%;
+            left: 3%;
+            transform: rotate(-17deg);
+        }
+
+        svg {
+            overflow: visible !important;
+        }
+
+        [data-pointer-lighting="true"] {
+            cursor: none;
+        }
+
+        feSpecularLighting {
+            opacity: 0.4;
+        }
+    }
+
+    @layer base {
+        :root {
+            --font-size-min: 16;
+            --font-size-max: 20;
+            --font-ratio-min: 1.2;
+            --font-ratio-max: 1.33;
+            --font-width-min: 375;
+            --font-width-max: 1500;
+        }
+
+        [data-theme="light"] {
+            color-scheme: light only;
+        }
+
+        [data-theme="dark"] {
+            color-scheme: dark only;
+        }
+
+        :where(.fluid) {
+            --fluid-min: calc(
+                var(--font-size-min) *
+                    pow(var(--font-ratio-min), var(--font-level, 0))
+            );
+            --fluid-max: calc(
+                var(--font-size-max) *
+                    pow(var(--font-ratio-max), var(--font-level, 0))
+            );
+            --fluid-preferred: calc(
+                (var(--fluid-max) - var(--fluid-min)) /
+                    (var(--font-width-max) - var(--font-width-min))
+            );
+            --fluid-type: clamp(
+                (var(--fluid-min) / 16) * 1rem,
+                ((var(--fluid-min) / 16) * 1rem) -
+                    (
+                        (
+                                (
+                                        var(--fluid-preferred) *
+                                            var(--font-width-min)
+                                    ) /
+                                    16
+                            ) *
+                            1rem
+                    ) +
+                    (var(--fluid-preferred) * var(--variable-unit, 100vi)),
+                (var(--fluid-max) / 16) * 1rem
+            );
+            font-size: var(--fluid-type);
+        }
+
+        .sr-only {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            padding: 0;
+            margin: -1px;
+            overflow: hidden;
+            clip: rect(0, 0, 0, 0);
+            white-space: nowrap;
+            border-width: 0;
+        }
+    }
+
+    div.tp-dfwv {
+        width: 280px;
+        max-height: 100vh;
+        overflow: auto;
+    }
+</style>
+
+<!-- JS: esto debe correr en el cliente -->
+<script type="module" is:inline>
+    import { Pane } from "https://cdn.skypack.dev/tweakpane@4.0.4";
+
+    const config = {
+        theme: "dark",
+        radius: 4,
+        outline: "#fff",
+        base: 0.4,
+        octaves: 4,
+        seed: 120,
+        type: "turbulence",
+        deviation: 2,
+        surface: 8,
+        specular: 6,
+        exponent: 65,
+        light: "hsla(0, 0%, 80%, 0.5)",
+        x: 50,
+        y: 50,
+        z: 65,
+        pointer: true,
+        dx: 1,
+        dy: 3,
+        shadow: "hsl(0, 0%, 0%)",
+        shadowOpacity: 0.75,
+        shadowDev: 3,
+    };
+
+    const SHOW_CONTROLS = false; // <-- panel oculto, pero se aplican los valores
+
+    window.addEventListener("DOMContentLoaded", () => {
+        const sticker = document.querySelector(".sticker");
+        const feMorphology = document.querySelector("feMorphology");
+        const feFlood = document.querySelector("feFlood");
+        const feTurbulence = document.querySelector("feTurbulence");
+        const feGaussianBlur = document.querySelector("feGaussianBlur");
+        const feSpecularLighting = document.querySelector("feSpecularLighting");
+        const fePointLight = document.querySelector("fePointLight");
+        const feDropShadow = document.querySelector("feDropShadow");
+
+        if (!sticker) return;
+
+        const syncLight = ({ x, y }) => {
+            const stickerBounds = sticker.getBoundingClientRect();
+            fePointLight?.setAttribute("x", Math.floor(x - stickerBounds.x));
+            fePointLight?.setAttribute("y", Math.floor(y - stickerBounds.y));
+        };
+
+        let monitoring = false;
+
+        // ✅ Esto aplica la config SIEMPRE (haya panel o no)
+        const applyConfig = () => {
+            document.documentElement.dataset.theme = config.theme;
+
+            feMorphology?.setAttribute("radius", config.radius);
+            feFlood?.setAttribute("flood-color", config.outline);
+
+            feTurbulence?.setAttribute("seed", config.seed);
+            feTurbulence?.setAttribute("type", config.type);
+            feTurbulence?.setAttribute("numOctaves", config.octaves);
+            feTurbulence?.setAttribute("baseFrequency", config.base);
+
+            feGaussianBlur?.setAttribute("stdDeviation", config.deviation);
+
+            feSpecularLighting?.setAttribute("surfaceScale", config.surface);
+            feSpecularLighting?.setAttribute(
+                "specularConstant",
+                config.specular,
+            );
+            feSpecularLighting?.setAttribute(
+                "specularExponent",
+                config.exponent,
+            );
+            feSpecularLighting?.setAttribute("lighting-color", config.light);
+
+            fePointLight?.setAttribute("x", config.x);
+            fePointLight?.setAttribute("y", config.y);
+            fePointLight?.setAttribute("z", config.z);
+
+            feDropShadow?.setAttribute("dx", config.dx);
+            feDropShadow?.setAttribute("dy", config.dy);
+            feDropShadow?.setAttribute("flood-color", config.shadow);
+            feDropShadow?.setAttribute("flood-opacity", config.shadowOpacity);
+            feDropShadow?.setAttribute("stdDeviation", config.shadowDev);
+
+            if (config.pointer && !monitoring) {
+                monitoring = true;
+                sticker.dataset.pointerLighting = "true";
+                window.addEventListener("pointermove", syncLight);
+            } else if (!config.pointer && monitoring) {
+                monitoring = false;
+                sticker.dataset.pointerLighting = "false";
+                window.removeEventListener("pointermove", syncLight);
+            }
+        };
+
+        // aplica una vez al cargar
+        applyConfig();
+
+        // ✅ Si no quieres panel, aquí termina
+        if (!SHOW_CONTROLS) return;
+
+        // ---- Panel solo en modo debug ----
+        const ctrl = new Pane({ title: "Config", expanded: true });
+
+        const sync = (event) => {
+            const isThemeChange =
+                event?.target?.controller?.view?.labelElement?.innerText ===
+                "Theme";
+
+            if (!document.startViewTransition || !isThemeChange)
+                return applyConfig();
+            document.startViewTransition(() => applyConfig());
+        };
+
+        const morph = ctrl.addFolder({ title: "feMorphology" });
+        morph.addBinding(config, "radius", {
+            min: 0,
+            max: 20,
+            step: 1,
+            label: "radius",
+        });
+
+        const flood = ctrl.addFolder({ title: "feFlood" });
+        flood.addBinding(config, "outline", { label: "color" });
+
+        const turbulence = ctrl.addFolder({ title: "feTurbulence" });
+        turbulence.addBinding(config, "base", {
+            label: "baseFrequency",
+            min: 0,
+            max: 1,
+            step: 0.01,
+        });
+        turbulence.addBinding(config, "octaves", {
+            label: "numOctaves",
+            min: 0,
+            max: 10,
+            step: 1,
+        });
+        turbulence.addBinding(config, "seed", {
+            label: "seed",
+            min: 0,
+            max: 1000,
+            step: 1,
+        });
+        turbulence.addBinding(config, "type", {
+            label: "type",
+            options: { fractalNoise: "fractalNoise", turbulence: "turbulence" },
+        });
+
+        const blur = ctrl.addFolder({ title: "feGaussianBlur" });
+        blur.addBinding(config, "deviation", {
+            label: "stdDeviation",
+            min: 0,
+            max: 10,
+            step: 0.1,
+        });
+
+        const lighting = ctrl.addFolder({ title: "feSpecularLighting" });
+        lighting.addBinding(config, "light", { label: "color" });
+        lighting.addBinding(config, "surface", {
+            label: "surfaceScale",
+            min: 0,
+            max: 50,
+            step: 0.1,
+        });
+        lighting.addBinding(config, "specular", {
+            label: "constant",
+            min: 0,
+            max: 25,
+            step: 0.1,
+        });
+        lighting.addBinding(config, "exponent", {
+            label: "exponent",
+            min: 0,
+            max: 200,
+            step: 0.1,
+        });
+
+        const point = ctrl.addFolder({ title: "fePointLight" });
+        point.addBinding(config, "x", {
+            label: "x",
+            min: -500,
+            max: 500,
+            step: 1,
+        });
+        point.addBinding(config, "y", {
+            label: "y",
+            min: -500,
+            max: 500,
+            step: 1,
+        });
+        point.addBinding(config, "z", {
+            label: "z",
+            min: 0,
+            max: 500,
+            step: 1,
+        });
+        point.addBinding(config, "pointer", { label: "pointer" });
+
+        const shadow = ctrl.addFolder({ title: "feDropShadow" });
+        shadow.addBinding(config, "dx", {
+            min: -10,
+            max: 10,
+            step: 1,
+            label: "dx",
+        });
+        shadow.addBinding(config, "dy", {
+            min: -10,
+            max: 10,
+            step: 1,
+            label: "dy",
+        });
+        shadow.addBinding(config, "shadow", { label: "flood-color" });
+        shadow.addBinding(config, "shadowOpacity", {
+            label: "flood-opacity",
+            min: 0,
+            max: 1,
+            step: 0.01,
+        });
+        shadow.addBinding(config, "shadowDev", {
+            label: "stdDeviation",
+            min: 0,
+            max: 20,
+            step: 0.1,
+        });
+
+        ctrl.addBinding(config, "theme", {
+            label: "Theme",
+            options: { System: "system", Light: "light", Dark: "dark" },
+        });
+
+        ctrl.on("change", sync);
+    });
+</script>
