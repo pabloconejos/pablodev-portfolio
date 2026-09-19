@@ -1,1 +1,22 @@
 @import "tailwindcss";
+@import "@fontsource/open-sans/400.css";
+@import "@fontsource/open-sans/600.css";
+@import "@fontsource/open-sans/700.css";
+
+:root {
+    --font-portfolio: "Open Sans", sans-serif;
+    font-family: var(--font-portfolio);
+}
+
+body,
+body * {
+    font-family: var(--font-portfolio);
+    font-weight: 700 !important;
+}
+
+button,
+input,
+select,
+textarea {
+    font-family: var(--font-portfolio);
+}
