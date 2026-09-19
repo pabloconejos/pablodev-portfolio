@@ -20,9 +20,18 @@ import HorizontalSection from "../components/about-me/horizontal-section.astro";
 
 <style>
 	.portada {
-		min-height: 90%;
+		min-height: 100svh;
 		display: flex;
 		justify-content: center;
 		align-items: center;
+		box-sizing: border-box;
+		padding: 2rem clamp(1rem, 5vw, 4rem);
+	}
+
+	@media (max-width: 768px) {
+		.portada {
+			min-height: 100dvh;
+			padding-block: 3rem 2rem;
+		}
 	}
 </style>

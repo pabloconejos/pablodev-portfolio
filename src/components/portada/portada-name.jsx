@@ -5,6 +5,12 @@ import { SplitText } from "gsap/SplitText";
 
 export default function PortadaName() {
   useEffect(() => {
+    const supportsPointerHover = window.matchMedia(
+      "(hover: hover) and (pointer: fine)",
+    ).matches;
+
+    if (!supportsPointerHover) return undefined;
+
     let timeoutId;
     const cards = document.querySelectorAll(".card.p-logo, .card.a-logo, .card.b-logo, .card.l-logo, .card.o-logo");
     const styleEl = document.querySelector("style.hover");
@@ -120,8 +126,8 @@ export default function PortadaName() {
       e.preventDefault();
       const card = e.currentTarget;
 
-      const clientX = e.type === "touchmove" ? e.touches[0].clientX : e.clientX;
-      const clientY = e.type === "touchmove" ? e.touches[0].clientY : e.clientY;
+      const clientX = e.clientX;
+      const clientY = e.clientY;
 
       // Solo seguimos si estamos sobre un píxel opaco del logo
       if (!isOpaquePixelInLogo(card, clientX, clientY)) {
@@ -190,19 +196,13 @@ export default function PortadaName() {
 
     cards.forEach(card => {
       card.addEventListener("mousemove", handleMove);
-      card.addEventListener("touchmove", handleMove, { passive: false });
-      card.addEventListener("mouseout", handleEnd);
-      card.addEventListener("touchend", handleEnd);
-      card.addEventListener("touchcancel", handleEnd);
+      card.addEventListener("mouseleave", handleEnd);
     });
 
     return () => {
       cards.forEach(card => {
         card.removeEventListener("mousemove", handleMove);
-        card.removeEventListener("touchmove", handleMove);
-        card.removeEventListener("mouseout", handleEnd);
-        card.removeEventListener("touchend", handleEnd);
-        card.removeEventListener("touchcancel", handleEnd);
+        card.removeEventListener("mouseleave", handleEnd);
       });
       clearTimeout(timeoutId);
     };

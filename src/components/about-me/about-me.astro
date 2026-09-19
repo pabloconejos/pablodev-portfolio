@@ -61,23 +61,39 @@
 
     /* 📱 MEDIA QUERY para pantallas más pequeñas (Móviles y Tablets) */
     @media (max-width: 768px) {
+        .spacer {
+            display: none;
+        }
+
         p {
-            font-size: 3rem; /* Tamaño reducido para móviles */
-            line-height: 1.2; /* Aumentar la altura de línea para mejor legibilidad */
-            letter-spacing: -2px; /* Reducir el espaciado entre letras */
-            padding: 0 10px; /* Añadir un poco de padding horizontal */
+            font-size: clamp(2.35rem, 11vw, 4.25rem);
+            line-height: 1.05;
+            letter-spacing: 0;
+            padding: 0;
+            text-wrap: balance;
+            animation: none;
         }
 
         .wrapper {
-            /* Ajustar si es necesario, puede que en móviles necesites menos altura */
-            height: 100vh;
+            height: auto;
+            min-height: 100dvh;
             top: 0;
+            padding: clamp(3rem, 12vh, 6rem) clamp(1rem, 5vw, 2rem);
+            box-sizing: border-box;
         }
 
         .panel {
-            /* Asegurar que el contenido se centre y tenga margen */
-            top: 20px;
-            padding: 0 5px;
+            position: static;
+            display: grid;
+            gap: clamp(0.75rem, 2.5vh, 1.5rem);
+            width: min(100%, 34rem);
+            margin-inline: auto;
+        }
+    }
+
+    @media (max-width: 380px) {
+        p {
+            font-size: 2.25rem;
         }
     }
 </style>

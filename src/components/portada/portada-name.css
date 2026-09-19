@@ -51,9 +51,12 @@
 }
 
 .card {
+    position: relative;
+    display: block;
+    flex: 0 0 auto;
     overflow: hidden;
     z-index: 10;
-    touch-action: none;
+    touch-action: pan-y;
     border-radius: 5%/3.5%;
     box-shadow: -5px -5px 5px -5px var(--color1), 5px 5px 5px -5px var(--color2),
         -7px -7px 10px -5px transparent, 7px 7px 10px -5px transparent,
@@ -741,3 +744,48 @@ main {
     - an animated gradient as a holo effect.
     - color-dodge mix blend mode
 */
+
+@media (max-width: 768px) {
+    .portada {
+        width: min(100%, 32rem);
+        margin-inline: auto;
+    }
+
+    .cards {
+        width: 100%;
+        gap: 0;
+    }
+
+    .card {
+        width: clamp(3.35rem, 18vw, 5rem);
+        height: auto;
+        aspect-ratio: 5 / 7;
+    }
+
+    .cards .card:nth-child(n + 2) {
+        margin-left: clamp(-2rem, -8vw, -1.25rem);
+    }
+
+    .portada .sub-titulo {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) auto;
+        align-items: baseline;
+        justify-content: initial;
+        margin: -0.25rem 0 0;
+        gap: 1rem;
+    }
+
+    .sub-titulo p {
+        font-size: clamp(0.8rem, 3vw, 1rem);
+        letter-spacing: 0;
+        white-space: nowrap;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .card.animated,
+    .card.animated::before,
+    .card.animated::after {
+        animation: none;
+    }
+}
