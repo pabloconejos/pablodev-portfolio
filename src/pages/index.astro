@@ -4,6 +4,7 @@ import PortadaName from "../components/portada/portada-name.jsx";
 import SideWorksPage from "../components/side-works/side-works-page.astro";
 import AboutMe from "../components/about-me/about-me.astro";
 import HorizontalSection from "../components/about-me/horizontal-section.astro";
+import Memoji from "../components/memoji.astro";
 // Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
 // Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
 ---
@@ -13,6 +14,7 @@ import HorizontalSection from "../components/about-me/horizontal-section.astro";
 		<PortadaName client:only="react" />
 	</div>
 	<AboutMe />
+	<Memoji />
 	<!--  -->
 	<!-- <HorizontalSection client:load /> -->
 	<!-- <SideWorksPage /> -->
